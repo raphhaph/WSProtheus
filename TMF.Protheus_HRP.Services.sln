@@ -1,0 +1,148 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Database.Infrastructure", "TMF.Protheus_HRP.Database.Infrastructure", "{C0FE5FFA-E7F9-4FDE-9748-1987E9F01E16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Infrastructure.Database", "Database.Infrastructure\TMF.Protheus_HRP.Infrastructure.Database.csproj", "{74DAC85E-8846-493D-9630-570886880410}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B5AD9506-A3CB-480A-A991-1AC8DB863304}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Application.Contracts", "TMF.Protheus_HRP.Application.Contracts", "{7ECC2A68-C036-4169-BA2B-878D4E2497BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Application.Contracts", "TMF.Protheus_HRP.Application.Contracts\TMF.Protheus_HRP.Application.Contracts.csproj", "{0D375C3C-5A48-4F03-94B7-4E381530AEFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Application.Crosscutting", "TMF.Protheus_HRP.Application.Crosscutting", "{1D439768-4B60-4AC9-A8F1-5B78373DC448}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Application.Crosscutting", "TMF.Protheus_HRP.Application.Crosscutting\TMF.Protheus_HRP.Application.Crosscutting.csproj", "{3032D171-64EA-4A91-AF5E-353D7F2CC1E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Application.Implementation", "TMF.Protheus_HRP.Application.Implementation", "{90371020-899F-4173-99D3-6DE4C727B6D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Application.Implementation", "TMF.Protheus_HRP.Application.Implementation\TMF.Protheus_HRP.Application.Implementation.csproj", "{4D644441-4DF5-4C80-8101-00E3072BB823}"
+	ProjectSection(ProjectDependencies) = postProject
+		{017BB2D3-30A2-43D3-BCE4-BE28E66D226A} = {017BB2D3-30A2-43D3-BCE4-BE28E66D226A}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.DataAccess.Contracts", "TMF.Protheus_HRP.DataAccess.Contracts", "{FB20ED3F-AA6D-4A1E-8372-812A81D9B0E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.DataAccess.Contracts", "TMF.Protheus_HRP.DataAccess.Contracts\TMF.Protheus_HRP.DataAccess.Contracts.csproj", "{A715CA2E-90DC-46E7-B177-7E275AC41F31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.DataAccess.Implementation", "TMF.Protheus_HRP.DataAccess.Implementation", "{7B64F290-6333-406E-BFCF-210CEAB7AEB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.DataAccess.Implementation", "TMF.Protheus_HRP.DataAccess.Implementation\TMF.Protheus_HRP.DataAccess.Implementation.csproj", "{017BB2D3-30A2-43D3-BCE4-BE28E66D226A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Domain.DTO", "TMF.Protheus_HRP.Domain.DTO", "{899BDB84-2F17-4A7A-9199-EC3736CED79A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Domain.DTO", "TMF.Protheus_HRP.Domain.DTO\TMF.Protheus_HRP.Domain.DTO.csproj", "{6497F717-5095-47B3-9174-51164F19642C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Domain.RequestResponse", "TMF.Protheus_HRP.Domain.RequestResponse", "{A967E297-CDB1-464C-A2FD-2F1C4D3450DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Domain.RequestResponse", "TMF.Protheus_HRP.Domain.RequestResponse\TMF.Protheus_HRP.Domain.RequestResponse.csproj", "{340CAC95-653F-46FC-A560-3D9E607D16EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Infrastructure.Common", "TMF.Protheus_HRP.Infrastructure.Common", "{8B09E2AF-75A1-4909-9782-EE1EBBF788AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Infrastructure.Common", "TMF.Protheus_HRP.Infrastructure.Common\TMF.Protheus_HRP.Infrastructure.Common.csproj", "{08B47AD7-D643-46ED-B963-250AFD50CDB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Services.Contratcs", "TMF.Protheus_HRP.Services.Contratcs", "{6C84FA47-5875-465A-A153-E5BD0E4F06C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Services.Contratcs", "TMF.Protheus_HRP.Services.Contratcs\TMF.Protheus_HRP.Services.Contratcs.csproj", "{AD285777-C9CC-40A0-9798-65146CF7436C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Services.Seedwork", "TMF.Protheus_HRP.Services.Seedwork", "{70A1C1A1-C191-4DFF-AB62-1DA7438E966E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Services.Seedwork", "TMF.Protheus_HRP.Services.Seedwork\TMF.Protheus_HRP.Services.Seedwork.csproj", "{243D9C13-69FC-42A2-8BB0-F4A2F28C3E09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Services.WCF", "TMF.Protheus_HRP.Services.WCF", "{33BBF2F0-0156-41C7-A30C-537A36C2178D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TMF.Protheus_HRP.Resources", "TMF.Protheus_HRP.Resources", "{E431F2B0-8523-48E0-85B5-4EED68488CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Resources", "TMF.Protheus_HRP.Resources\TMF.Protheus_HRP.Resources.csproj", "{8843C008-3498-4D97-936A-02385A49D1D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMF.Protheus_HRP.Services.WCF_Rest", "TMF.Protheus_HRP.Services.WCF_Rest\TMF.Protheus_HRP.Services.WCF_Rest.csproj", "{272751BD-ED44-400D-9BB4-1AB63695ECA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74DAC85E-8846-493D-9630-570886880410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74DAC85E-8846-493D-9630-570886880410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74DAC85E-8846-493D-9630-570886880410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74DAC85E-8846-493D-9630-570886880410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D375C3C-5A48-4F03-94B7-4E381530AEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D375C3C-5A48-4F03-94B7-4E381530AEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D375C3C-5A48-4F03-94B7-4E381530AEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D375C3C-5A48-4F03-94B7-4E381530AEFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3032D171-64EA-4A91-AF5E-353D7F2CC1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3032D171-64EA-4A91-AF5E-353D7F2CC1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3032D171-64EA-4A91-AF5E-353D7F2CC1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3032D171-64EA-4A91-AF5E-353D7F2CC1E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D644441-4DF5-4C80-8101-00E3072BB823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D644441-4DF5-4C80-8101-00E3072BB823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D644441-4DF5-4C80-8101-00E3072BB823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D644441-4DF5-4C80-8101-00E3072BB823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A715CA2E-90DC-46E7-B177-7E275AC41F31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A715CA2E-90DC-46E7-B177-7E275AC41F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A715CA2E-90DC-46E7-B177-7E275AC41F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A715CA2E-90DC-46E7-B177-7E275AC41F31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{017BB2D3-30A2-43D3-BCE4-BE28E66D226A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{017BB2D3-30A2-43D3-BCE4-BE28E66D226A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{017BB2D3-30A2-43D3-BCE4-BE28E66D226A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{017BB2D3-30A2-43D3-BCE4-BE28E66D226A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6497F717-5095-47B3-9174-51164F19642C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6497F717-5095-47B3-9174-51164F19642C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6497F717-5095-47B3-9174-51164F19642C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6497F717-5095-47B3-9174-51164F19642C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340CAC95-653F-46FC-A560-3D9E607D16EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340CAC95-653F-46FC-A560-3D9E607D16EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340CAC95-653F-46FC-A560-3D9E607D16EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340CAC95-653F-46FC-A560-3D9E607D16EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08B47AD7-D643-46ED-B963-250AFD50CDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B47AD7-D643-46ED-B963-250AFD50CDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B47AD7-D643-46ED-B963-250AFD50CDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08B47AD7-D643-46ED-B963-250AFD50CDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD285777-C9CC-40A0-9798-65146CF7436C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD285777-C9CC-40A0-9798-65146CF7436C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD285777-C9CC-40A0-9798-65146CF7436C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD285777-C9CC-40A0-9798-65146CF7436C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{243D9C13-69FC-42A2-8BB0-F4A2F28C3E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{243D9C13-69FC-42A2-8BB0-F4A2F28C3E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{243D9C13-69FC-42A2-8BB0-F4A2F28C3E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{243D9C13-69FC-42A2-8BB0-F4A2F28C3E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8843C008-3498-4D97-936A-02385A49D1D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8843C008-3498-4D97-936A-02385A49D1D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8843C008-3498-4D97-936A-02385A49D1D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8843C008-3498-4D97-936A-02385A49D1D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{272751BD-ED44-400D-9BB4-1AB63695ECA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{272751BD-ED44-400D-9BB4-1AB63695ECA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{272751BD-ED44-400D-9BB4-1AB63695ECA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{272751BD-ED44-400D-9BB4-1AB63695ECA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{74DAC85E-8846-493D-9630-570886880410} = {C0FE5FFA-E7F9-4FDE-9748-1987E9F01E16}
+		{0D375C3C-5A48-4F03-94B7-4E381530AEFD} = {7ECC2A68-C036-4169-BA2B-878D4E2497BB}
+		{3032D171-64EA-4A91-AF5E-353D7F2CC1E2} = {1D439768-4B60-4AC9-A8F1-5B78373DC448}
+		{4D644441-4DF5-4C80-8101-00E3072BB823} = {90371020-899F-4173-99D3-6DE4C727B6D0}
+		{A715CA2E-90DC-46E7-B177-7E275AC41F31} = {FB20ED3F-AA6D-4A1E-8372-812A81D9B0E9}
+		{017BB2D3-30A2-43D3-BCE4-BE28E66D226A} = {7B64F290-6333-406E-BFCF-210CEAB7AEB4}
+		{6497F717-5095-47B3-9174-51164F19642C} = {899BDB84-2F17-4A7A-9199-EC3736CED79A}
+		{340CAC95-653F-46FC-A560-3D9E607D16EC} = {A967E297-CDB1-464C-A2FD-2F1C4D3450DF}
+		{08B47AD7-D643-46ED-B963-250AFD50CDB5} = {8B09E2AF-75A1-4909-9782-EE1EBBF788AF}
+		{AD285777-C9CC-40A0-9798-65146CF7436C} = {6C84FA47-5875-465A-A153-E5BD0E4F06C4}
+		{243D9C13-69FC-42A2-8BB0-F4A2F28C3E09} = {70A1C1A1-C191-4DFF-AB62-1DA7438E966E}
+		{272751BD-ED44-400D-9BB4-1AB63695ECA4} = {33BBF2F0-0156-41C7-A30C-537A36C2178D}
+		{8843C008-3498-4D97-936A-02385A49D1D1} = {E431F2B0-8523-48E0-85B5-4EED68488CCB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal

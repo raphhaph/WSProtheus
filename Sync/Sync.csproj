@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB12CF39-7D51-4541-9818-1C51C26F7FD3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sync</RootNamespace>
+    <AssemblyName>Sync</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Mapping\sysdiagramMap.cs" />
+    <Compile Include="Models\Mapping\tblAnexoIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblAnexoMap.cs" />
+    <Compile Include="Models\Mapping\tblAssuntoIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblAssuntoMap.cs" />
+    <Compile Include="Models\Mapping\tblCodigoExternoMap.cs" />
+    <Compile Include="Models\Mapping\tblEquipeIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblEquipeMap.cs" />
+    <Compile Include="Models\Mapping\tblEstagioIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblEstagioOperacaoMap.cs" />
+    <Compile Include="Models\Mapping\tblEtapaClienteMap.cs" />
+    <Compile Include="Models\Mapping\tblFluxoMap.cs" />
+    <Compile Include="Models\Mapping\tblFluxoTarefaMap.cs" />
+    <Compile Include="Models\Mapping\tblFluxoTarefaMovimentoMap.cs" />
+    <Compile Include="Models\Mapping\tblGestorEquipeMap.cs" />
+    <Compile Include="Models\Mapping\tblGestorMap.cs" />
+    <Compile Include="Models\Mapping\tblIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblLogFollowMEMap.cs" />
+    <Compile Include="Models\Mapping\tblLogProcessoMap.cs" />
+    <Compile Include="Models\Mapping\tblPerfilUsuarioEquipeMap.cs" />
+    <Compile Include="Models\Mapping\tblProcessoMap.cs" />
+    <Compile Include="Models\Mapping\tblProcessoTarefaMap.cs" />
+    <Compile Include="Models\Mapping\tblServicoMap.cs" />
+    <Compile Include="Models\Mapping\tblStatusProcessoIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblStatusProcessoMap.cs" />
+    <Compile Include="Models\Mapping\tblStatusProcessoTarefaIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblStatusProcessoTarefaMap.cs" />
+    <Compile Include="Models\Mapping\tblStatusTarefaIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblStatusTarefaMap.cs" />
+    <Compile Include="Models\Mapping\tbltarefabkpMap.cs" />
+    <Compile Include="Models\Mapping\tblTarefaIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblTarefaInicialMap.cs" />
+    <Compile Include="Models\Mapping\tblTarefaMap.cs" />
+    <Compile Include="Models\Mapping\tblTipoExecucaoTarefaIdiomaMap.cs" />
+    <Compile Include="Models\Mapping\tblTipoExecucaoTarefaMap.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\tblAnexo.cs" />
+    <Compile Include="Models\tblAnexoIdioma.cs" />
+    <Compile Include="Models\tblAssunto.cs" />
+    <Compile Include="Models\tblAssuntoIdioma.cs" />
+    <Compile Include="Models\tblCodigoExterno.cs" />
+    <Compile Include="Models\tblEquipe.cs" />
+    <Compile Include="Models\tblEquipeIdioma.cs" />
+    <Compile Include="Models\tblEstagioIdioma.cs" />
+    <Compile Include="Models\tblEstagioOperacao.cs" />
+    <Compile Include="Models\tblEtapaCliente.cs" />
+    <Compile Include="Models\tblFluxo.cs" />
+    <Compile Include="Models\tblFluxoTarefa.cs" />
+    <Compile Include="Models\tblFluxoTarefaMovimento.cs" />
+    <Compile Include="Models\tblGestor.cs" />
+    <Compile Include="Models\tblGestorEquipe.cs" />
+    <Compile Include="Models\tblIdioma.cs" />
+    <Compile Include="Models\tblLogFollowME.cs" />
+    <Compile Include="Models\tblLogProcesso.cs" />
+    <Compile Include="Models\tblPerfilUsuarioEquipe.cs" />
+    <Compile Include="Models\tblProcesso.cs" />
+    <Compile Include="Models\tblProcessoTarefa.cs" />
+    <Compile Include="Models\tblServico.cs" />
+    <Compile Include="Models\tblStatusProcesso.cs" />
+    <Compile Include="Models\tblStatusProcessoIdioma.cs" />
+    <Compile Include="Models\tblStatusProcessoTarefa.cs" />
+    <Compile Include="Models\tblStatusProcessoTarefaIdioma.cs" />
+    <Compile Include="Models\tblStatusTarefa.cs" />
+    <Compile Include="Models\tblStatusTarefaIdioma.cs" />
+    <Compile Include="Models\tblTarefa.cs" />
+    <Compile Include="Models\tbltarefabkp.cs" />
+    <Compile Include="Models\tblTarefaIdioma.cs" />
+    <Compile Include="Models\tblTarefaInicial.cs" />
+    <Compile Include="Models\tblTipoExecucaoTarefa.cs" />
+    <Compile Include="Models\tblTipoExecucaoTarefaIdioma.cs" />
+    <Compile Include="Models\TMF_FOLLOWMEContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

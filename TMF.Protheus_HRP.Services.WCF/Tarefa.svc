@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TMF.FollowME.Services.WCF.Tarefa" CodeBehind="Tarefa.svc.cs" %>

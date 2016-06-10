@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TMF.Protheus_HRP.Services.WCF.ProcessoTarefa" CodeBehind="ProcessoTarefa.svc.cs" %>
