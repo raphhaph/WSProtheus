@@ -79,8 +79,12 @@
       <Project>{0d375c3c-5a48-4f03-94b7-4e381530aefd}</Project>
       <Name>TMF.Protheus_HRP.Application.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TMF.Protheus_HRP.Application.Crosscutting\TMF.Protheus_HRP.Application.Crosscutting.csproj">
+      <Project>{3032d171-64ea-4a91-af5e-353d7f2cc1e2}</Project>
+      <Name>TMF.Protheus_HRP.Application.Crosscutting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TMF.Protheus_HRP.Application.Implementation\TMF.Protheus_HRP.Application.Implementation.csproj">
-      <Project>{4D644441-4DF5-4C80-8101-00E3072BB823}</Project>
+      <Project>{4d644441-4df5-4c80-8101-00e3072bb823}</Project>
       <Name>TMF.Protheus_HRP.Application.Implementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\TMF.Protheus_HRP.DataAccess.Contracts\TMF.Protheus_HRP.DataAccess.Contracts.csproj">

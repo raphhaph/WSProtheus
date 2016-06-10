@@ -55,7 +55,7 @@
       <Name>TMF.Protheus_HRP.Domain.DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\TMF.Protheus_HRP.Domain.RequestResponse\TMF.Protheus_HRP.Domain.RequestResponse.csproj">
-      <Project>{340CAC95-653F-46FC-A560-3D9E607D16EC}</Project>
+      <Project>{340cac95-653f-46fc-a560-3d9e607d16ec}</Project>
       <Name>TMF.Protheus_HRP.Domain.RequestResponse</Name>
     </ProjectReference>
   </ItemGroup>

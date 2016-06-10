@@ -55,11 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TMF.Protheus_HRP.Domain.DTO\TMF.Protheus_HRP.Domain.DTO.csproj">
-      <Project>{6497F717-5095-47B3-9174-51164F19642C}</Project>
+      <Project>{6497f717-5095-47b3-9174-51164f19642c}</Project>
       <Name>TMF.Protheus_HRP.Domain.DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\TMF.Protheus_HRP.Domain.RequestResponse\TMF.Protheus_HRP.Domain.RequestResponse.csproj">
-      <Project>{340CAC95-653F-46FC-A560-3D9E607D16EC}</Project>
+      <Project>{340cac95-653f-46fc-a560-3d9e607d16ec}</Project>
       <Name>TMF.Protheus_HRP.Domain.RequestResponse</Name>
     </ProjectReference>
   </ItemGroup>

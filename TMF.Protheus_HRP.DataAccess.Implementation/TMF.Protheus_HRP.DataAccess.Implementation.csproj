@@ -58,6 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Database.Infrastructure\TMF.Protheus_HRP.Infrastructure.Database.csproj">
       <Project>{74dac85e-8846-493d-9630-570886880410}</Project>
       <Name>TMF.Protheus_HRP.Infrastructure.Database</Name>
@@ -70,9 +73,6 @@
       <Project>{6497f717-5095-47b3-9174-51164f19642c}</Project>
       <Name>TMF.Protheus_HRP.Domain.DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

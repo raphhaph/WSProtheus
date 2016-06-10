@@ -56,6 +56,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\TMF.Protheus_HRP.Domain.DTO\TMF.Protheus_HRP.Domain.DTO.csproj">
       <Project>{6497f717-5095-47b3-9174-51164f19642c}</Project>
       <Name>TMF.Protheus_HRP.Domain.DTO</Name>
@@ -65,10 +68,6 @@
       <Name>TMF.Protheus_HRP.Domain.RequestResponse</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
