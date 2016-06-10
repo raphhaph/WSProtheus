@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsultaGenericaDal.cs" />
     <Compile Include="CabFunDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
