@@ -8,16 +8,12 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
 {
     public class BaseInstanceProvider
     {
-        public IServiceAuthApp _iApp;
-        public ICabFuncApp _iCabFuncApp;
         protected string Usuario;
         protected string Senha;
 
 
         public BaseInstanceProvider()
         {
-
-            _iCabFuncApp = Container.GetInstance<ICabFuncApp>();
             CarregarParametros();
         }
 
@@ -33,7 +29,6 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
         {
             byte[] encodedDataAsBytes = Convert.FromBase64String(encodedData);
             return ASCIIEncoding.ASCII.GetString(encodedDataAsBytes);
-
         }
 
     }
