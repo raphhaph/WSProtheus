@@ -23,14 +23,10 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
          public ListarCabFuncionarioResponse ListarCabFuncionario(BuscarCabFuncionarioRequest request)
         {
 
-            if (!DecodeFrom64(request.Usuario).Equals(_usuario) ||
-                   !DecodeFrom64(request.Senha).Equals(_senha))
+            if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ListarCabFuncionarioResponse
                 {
-                    
                     BusinessErrors = new List<string>(){"Falha de autenticação: usuário ou senha inválido."},
-                       
-
                 };
 
             return _iCabFuncApp.ListarCabFuncionario(request);

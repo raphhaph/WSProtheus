@@ -8,25 +8,25 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
 {
     public class BaseInstanceProvider
     {
-        public IServiceAuthApp  _iApp;
-        public ICabFuncApp      _iCabFuncApp;
-        public string           _usuario;
-        public string           _senha;
+        public IServiceAuthApp _iApp;
+        public ICabFuncApp _iCabFuncApp;
+        protected string Usuario;
+        protected string Senha;
 
 
         public BaseInstanceProvider()
         {
-            
-            _iCabFuncApp    = Container.GetInstance<ICabFuncApp>();
+
+            _iCabFuncApp = Container.GetInstance<ICabFuncApp>();
             CarregarParametros();
         }
 
         private void CarregarParametros()
         {
 
-          _usuario  = ConfigurationManager.AppSettings["Login"];
-          _senha    = ConfigurationManager.AppSettings["Senha"];
-        
+            Usuario = ConfigurationManager.AppSettings["Login"];
+            Senha = ConfigurationManager.AppSettings["Senha"];
+
         }
 
         public string DecodeFrom64(string encodedData)

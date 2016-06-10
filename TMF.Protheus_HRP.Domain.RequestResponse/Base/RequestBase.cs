@@ -8,5 +8,10 @@ namespace TMF.Protheus_HRP.Domain.RequestResponse.Base
     {
         [DataMember]
         public String Locale { get; set; }
+        [DataMember]
+        public string Usuario { get; set; }
+
+        [DataMember]
+        public string Senha { get; set; }
     }
 }
