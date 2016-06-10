@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICabFunc.cs" />
     <Compile Include="ICabFuncApp.cs" />
+    <Compile Include="IConsultaGenericaApp.cs" />
     <Compile Include="IServiceAuthApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
