@@ -29,14 +29,14 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
 
             str.Append(" select CTT_CUSTO,                                  ");
             str.Append("        CTT_DESC01                                  ");
-            str.AppendFormat(" {0}dbo.CTT{1}0 ", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" from {0}dbo.CTT{1}0 ", linkedServerForQuery, pEmpresa);
             str.Append("  where CTT_FILIAL = @FILIAL                        ");
             str.Append("    and (CTT_BLOQ = '2' OR CTT_BLOQ = 'N')          ");
             str.Append("    and D_E_L_E_T_ = ' '                            ");
             str.Append("  union                                             ");
             str.Append(" select CTT_CUSTO,                                  ");
             str.Append("        CTT_DESC01                                  ");
-            str.AppendFormat(" {0}dbo.CTT{1}0 ", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" from {0}dbo.CTT{1}0 ", linkedServerForQuery, pEmpresa);
             str.Append("  where CTT_FILIAL = ' '                            ");
             str.Append("    and (CTT_BLOQ = '2' OR CTT_BLOQ = 'N')          ");
             str.Append("    and D_E_L_E_T_ = ' '                            ");
@@ -67,7 +67,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
 
             str.Append(" select CTT_CUSTO,                                 ");
             str.Append("        CTT_DESC01                                 ");
-            str.AppendFormat(" {0}dbo.CTT{1}0 ", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" from {0}dbo.CTT{1}0 ", linkedServerForQuery, pEmpresa);
             str.Append("  where CTT_FILIAL = @filial                       ");
             str.Append("    and CTT_BLOQ <> '2'                            ");
             str.Append("    and CTT_DESC01 like '%'+@CENTROCUSTO+'%'           ");
@@ -75,7 +75,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
             str.Append("  union                                            ");
             str.Append(" select CTT_CUSTO,                                 ");
             str.Append("        CTT_DESC01                                 ");
-            str.AppendFormat(" {0}dbo.CTT{1}0 ", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" from {0}dbo.CTT{1}0 ", linkedServerForQuery, pEmpresa);
             str.Append("  where CTT_FILIAL = ' '                           ");
             str.Append("    and CTT_BLOQ <> '2'                            ");
             str.Append("    and CTT_DESC01 like '%'+@CENTROCUSTO+'%'           ");
@@ -236,13 +236,13 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
 
             str.Append(" select Q3_CARGO,                                       ");
             str.Append("        Q3_DESCSUM                                      ");
-            str.AppendFormat(" {0}dbo.SQ3{1}0 SQ3", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" from {0}dbo.SQ3{1}0 SQ3", linkedServerForQuery, pEmpresa);
             str.Append("  where SQ3.Q3_FILIAL = @FILIAL                         ");
             str.Append("    and SQ3.D_E_L_E_T_ = ' '                            ");
             str.Append(" union                                                  ");
             str.Append(" select Q3_CARGO,                                       ");
             str.Append("        Q3_DESCSUM                                      ");
-            str.AppendFormat(" {0}dbo.SQ3{1}0 SQ3", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" from {0}dbo.SQ3{1}0 SQ3", linkedServerForQuery, pEmpresa);
             str.Append("  where SQ3.Q3_FILIAL = ' '                             ");
             str.Append("    and SQ3.D_E_L_E_T_ = ' '                            ");
             str.Append("  order by Q3_CARGO                                     ");
