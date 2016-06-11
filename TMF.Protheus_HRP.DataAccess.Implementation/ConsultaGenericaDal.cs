@@ -143,8 +143,8 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
             {
                 var retorno = reader.Map(dr => new DadoGenerico
                 {
-                    Codigo = dr["A6_COD"].ToString(),
-                    Descricao = dr["A6_NOME"].ToString()
+                    Codigo = dr["X5_CHAVE"].ToString().Trim(),
+                    Descricao = dr["X5_DESCRI"].ToString().Trim()
                 });
                 reader.Close();
                 return retorno;
