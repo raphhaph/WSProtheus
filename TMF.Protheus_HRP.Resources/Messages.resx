@@ -120,6 +120,9 @@
   <data name="AdiantamentoPLRDesconsiderado" xml:space="preserve">
     <value>Desconsiderado o conceito de adiantamento de PLR.</value>
   </data>
+  <data name="CentroCustoNaoNulo" xml:space="preserve">
+    <value>O Centro de Custo deve ser informado.</value>
+  </data>
   <data name="CodigoNulo" xml:space="preserve">
     <value>O código não pode ser nulo.</value>
   </data>

@@ -120,6 +120,9 @@
   <data name="AdiantamentoPLRDesconsiderado" xml:space="preserve">
     <value>Disregarding the concept of Profit Sharing advance.</value>
   </data>
+  <data name="CentroCustoNaoNulo" xml:space="preserve">
+    <value>El centro de coste debe ser informado.</value>
+  </data>
   <data name="CodigoNulo" xml:space="preserve">
     <value>The Code cannot be null.</value>
   </data>

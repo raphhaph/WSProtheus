@@ -70,6 +70,15 @@ namespace TMF.Protheus_HRP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O Centro de Custo deve ser informado..
+        /// </summary>
+        public static string CentroCustoNaoNulo {
+            get {
+                return ResourceManager.GetString("CentroCustoNaoNulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O código não pode ser nulo..
         /// </summary>
         public static string CodigoNulo {

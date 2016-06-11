@@ -373,9 +373,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
             resp.Agencias = agencias.ProjectedAsCollection<Models.AgenciaBanco>();
             return resp;
         }
-
-        //TESTAR
-
+        
         public ConsultaGenericaReponse ListarCentroCustoDepartamento(ConsultaDadoGenericoRequest request)
         {
             var resp = new ConsultaGenericaReponse();
@@ -397,7 +395,6 @@ namespace TMF.Protheus_HRP.Application.Implementation
             resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
             return resp;
         }
-
         public ConsultaGenericaReponse ListarCentroCusto(ListarCentroCustoRequest request)
         {
             var resp = new ConsultaGenericaReponse();
@@ -407,6 +404,9 @@ namespace TMF.Protheus_HRP.Application.Implementation
 
             if (String.IsNullOrWhiteSpace(request.Filial))
                 resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (String.IsNullOrWhiteSpace(request.CentroCusto))
+                resp.BusinessErrors.Add(Messages.CentroCustoNaoNulo);
 
             if (resp.BusinessErrors.Any())
             {
