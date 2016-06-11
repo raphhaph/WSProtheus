@@ -57,10 +57,13 @@
     <Compile Include="ConsultaGenerica\ConsultaGenericaReponse.cs" />
     <Compile Include="ConsultaGenerica\ListarAgenciasRequest.cs" />
     <Compile Include="ConsultaGenerica\ConsultaDadoGenericoRequest.cs" />
+    <Compile Include="Demonstrativo\BuscarDemonstrativoRequest.cs" />
+    <Compile Include="Demonstrativo\ConsultaGenericaReponse.cs" />
     <Compile Include="FaultContracts\ServiceError.cs" />
     <Compile Include="Models\AgenciaBanco.cs" />
     <Compile Include="Models\DadoGenerico.cs" />
     <Compile Include="Models\Funcionario.cs" />
+    <Compile Include="Models\TipoDemonstrativo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

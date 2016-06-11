@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DemonstrativoDal.cs" />
+    <Compile Include="CargoDal.cs" />
+    <Compile Include="FuncionarioDal.cs" />
     <Compile Include="ConsultaGenericaDal.cs" />
     <Compile Include="CabFunDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

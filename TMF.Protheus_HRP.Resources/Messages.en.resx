@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AdiantamentoPLRDesconsiderado" xml:space="preserve">
+    <value>Disregarding the concept of Profit Sharing advance.</value>
+  </data>
   <data name="CodigoNulo" xml:space="preserve">
     <value>The Code cannot be null.</value>
   </data>
@@ -128,5 +131,11 @@
   </data>
   <data name="FilialNula" xml:space="preserve">
     <value>The Branch cannot be null.</value>
+  </data>
+  <data name="FuncionarioNaoEncontrado" xml:space="preserve">
+    <value>Employee not found.</value>
+  </data>
+  <data name="PeriodoNaoInformado" xml:space="preserve">
+    <value>The period should be informed.</value>
   </data>
 </root>

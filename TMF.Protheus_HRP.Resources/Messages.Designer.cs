@@ -61,6 +61,15 @@ namespace TMF.Protheus_HRP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desconsiderado o conceito de adiantamento de PLR..
+        /// </summary>
+        public static string AdiantamentoPLRDesconsiderado {
+            get {
+                return ResourceManager.GetString("AdiantamentoPLRDesconsiderado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O código não pode ser nulo..
         /// </summary>
         public static string CodigoNulo {
@@ -93,6 +102,24 @@ namespace TMF.Protheus_HRP.Resources {
         public static string FilialNula {
             get {
                 return ResourceManager.GetString("FilialNula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Funcionário não encontrado..
+        /// </summary>
+        public static string FuncionarioNaoEncontrado {
+            get {
+                return ResourceManager.GetString("FuncionarioNaoEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O período deve ser informado..
+        /// </summary>
+        public static string PeriodoNaoInformado {
+            get {
+                return ResourceManager.GetString("PeriodoNaoInformado", resourceCulture);
             }
         }
     }

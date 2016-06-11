@@ -50,8 +50,12 @@
     <Compile Include="Base\Entity.cs" />
     <Compile Include="AgenciaBanco.cs" />
     <Compile Include="DadoGenerico.cs" />
+    <Compile Include="Demonstrativo.cs" />
+    <Compile Include="Evento.cs" />
+    <Compile Include="Funcionario.cs" />
     <Compile Include="MatriculaFilial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecolhimentoFGTS.cs" />
     <Compile Include="TiposSX5.cs" />
   </ItemGroup>
   <ItemGroup>
