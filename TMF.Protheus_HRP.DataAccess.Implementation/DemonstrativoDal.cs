@@ -64,7 +64,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                             CPF = reader["RA_CIC"].ToString(),
                             DataAdmissao = reader["RA_ADMISSA"].ToString(),
                             Cargo = reader["RA_CODFUNC"].ToString(),
-                            Salario = reader["RA_SALARIO"].ToString(),
+                            Salario = reader["RA_SALARIO"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["RA_SALARIO"], CultureInfo.InstalledUICulture),
                             QuantidadeDependenteSalarioFamilia = reader["RA_DEPSF"].ToString(),
                             QuantidadeDependentesIR = reader["RA_DEPIR"].ToString(),
                             Banco = bancoAgencia.Substring(0, 3),
@@ -141,13 +141,14 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                             //If Posicione("SP9",4,xFilial("SP9")+QRY->RD_PD,"P9_IDPON") $ "023A|024A"
                             //aAdd(aBanc,{QRY->RD_PD,QRY->RV_DESC,QRY->RD_HORAS,QRY->RD_VALOR}) //BASE BANCO DE HORAS
                             //EndIf
-                            retorno.BancoDeHoras.Add(new Evento
-                            {
-                                CodigoRubrica = reader["RD_PD"].ToString(),
-                                DescricaoRubrica = reader["RV_DESC"].ToString(),
-                                Quantidade = Convert.ToDecimal(reader["RD_HORAS"].ToString(), CultureInfo.InvariantCulture),
-                                Valor = Convert.ToDecimal(reader["RD_VALOR"].ToString(), CultureInfo.InvariantCulture),
-                            });
+                            if (reader["RD_PD"].ToString() == "023A" || reader["RD_PD"].ToString() == "024A")
+                                retorno.BancoDeHoras.Add(new Evento
+                                {
+                                    CodigoRubrica = reader["RD_PD"].ToString(),
+                                    DescricaoRubrica = reader["RV_DESC"].ToString(),
+                                    Quantidade = Convert.ToDecimal(reader["RD_HORAS"].ToString(), CultureInfo.InvariantCulture),
+                                    Valor = Convert.ToDecimal(reader["RD_VALOR"].ToString(), CultureInfo.InvariantCulture),
+                                });
                         }
                         if (vbase != 0 || hbase != 0)
                         {

@@ -13,12 +13,14 @@ namespace TMF.Protheus_HRP.Application.Implementation
         private readonly IDemonstrativoDal _dal;
         private readonly IFuncionarioDal _funcDal;
         private readonly ICargoDal _cargoDal;
+        private readonly ISalarioDal _salarioDal;
 
-        public DemonstrativoApp(IDemonstrativoDal iDal, IFuncionarioDal funcDal, ICargoDal cargoDal)
+        public DemonstrativoApp(IDemonstrativoDal iDal, IFuncionarioDal funcDal, ICargoDal cargoDal, ISalarioDal salarioDal)
         {
             _dal = iDal;
             _funcDal = funcDal;
             _cargoDal = cargoDal;
+            _salarioDal = salarioDal;
         }
 
         public BuscarDemonstrativoResponse BuscarDemonstrativo(BuscarDemonstrativoRequest request)
@@ -38,7 +40,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
             if (request.TipoDemonstrativo == TipoDemonstrativo.DecimoTerceiro)
                 request.Periodo = request.Periodo.Substring(0, 4) + "13";
 
-            var funcionario = _funcDal.BuscarFuncionario(request.Matricula, request.CodigoFilial,request.CodigoEmpresa);
+            var funcionario = _funcDal.BuscarFuncionario(request.Matricula, request.CodigoFilial, request.CodigoEmpresa);
             if (funcionario == null)
             {
                 resp.BusinessErrors.Add(Messages.FuncionarioNaoEncontrado);
@@ -59,6 +61,9 @@ namespace TMF.Protheus_HRP.Application.Implementation
             var demonstrativo = _dal.BuscarDemonstrativo(request.Matricula, request.CodigoFilial, request.CodigoEmpresa, tipoDemonstrativoProtheus, request.Periodo, request.Periodo);
             var cargo = _cargoDal.BuscarCargo(request.Matricula, request.CodigoFilial, request.CodigoEmpresa, demonstrativo.Cargo);
             demonstrativo.Cargo = demonstrativo.Cargo + " - " + cargo;
+            var salario = _salarioDal.BuscarSalario(request.Matricula, request.CodigoFilial, request.CodigoEmpresa, request.CodigoEmpresa, request.Periodo);
+            if (salario > 0)
+                demonstrativo.Salario = salario;
             return resp;
         }
     }

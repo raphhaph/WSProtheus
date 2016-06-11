@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TMF.Protheus_HRP.Domain.DTO
 {
@@ -51,7 +52,7 @@ namespace TMF.Protheus_HRP.Domain.DTO
 
         public string Referencia { get; set; }
 
-        public string Salario { get; set; }
+        public Decimal Salario { get; set; }
 
         public string Secao { get; set; }
 

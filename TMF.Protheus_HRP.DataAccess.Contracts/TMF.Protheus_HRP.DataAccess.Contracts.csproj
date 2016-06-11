@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISalarioDal.cs" />
     <Compile Include="ICargoDal.cs" />
     <Compile Include="IFuncionarioDal.cs" />
     <Compile Include="IDemonstrativoDal.cs" />
