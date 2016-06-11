@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 using Infrastructure.Database.DataAccess;
 using Infrastructure.Database.Extensions;
 using TMF.Protheus_HRP.DataAccess.Contracts;
 using TMF.Protheus_HRP.Domain.DTO;
-using System.Text;
 
 namespace TMF.Protheus_HRP.DataAccess.Implementation
 {
@@ -20,7 +20,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
 
         public List<DadoGenerico> ListarBancos(string pEmpresa, string pFilial)
         {
-            var linkedServerForQuery = System.Configuration.ConfigurationManager.AppSettings["LinkedServerForQuery"];
+            var linkedServerForQuery = ConfigurationManager.AppSettings["LinkedServerForQuery"];
             var parameters = new List<IDbDataParameter>
             {
                 new SqlParameter("@FILIAL", SqlDbType.VarChar){Value = pFilial},
@@ -62,7 +62,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
 
         public List<AgenciaBanco> ListarAgenciasBanco(string pCodigoBanco, string pEmpresa, string pFilial)
         {
-            var linkedServerForQuery = System.Configuration.ConfigurationManager.AppSettings["LinkedServerForQuery"];
+            var linkedServerForQuery = ConfigurationManager.AppSettings["LinkedServerForQuery"];
             var parameters = new List<IDbDataParameter>
             {
                 new SqlParameter("@COD", SqlDbType.VarChar){Value    = pCodigoBanco},
@@ -109,7 +109,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
 
         public List<DadoGenerico> BuscarDadosSX5(string pEmpresa, string pFilial, TiposSX5 tipo)
         {
-            var linkedServerForQuery = System.Configuration.ConfigurationManager.AppSettings["LinkedServerForQuery"];
+            var linkedServerForQuery = ConfigurationManager.AppSettings["LinkedServerForQuery"];
             var parameters = new List<IDbDataParameter>
             {
                 new SqlParameter("@FILIAL", SqlDbType.VarChar){Value = pFilial},
