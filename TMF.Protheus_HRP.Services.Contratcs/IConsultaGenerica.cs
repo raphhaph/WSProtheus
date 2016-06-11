@@ -90,7 +90,7 @@ namespace TMF.Protheus_HRP.Services.Contratcs
             UriTemplate = "/ListarOrgaoRG")]
         [FaultContract(typeof(ServiceError))]
         ConsultaGenericaReponse ListarOrgaoRG(ConsultaDadoGenericoRequest request);
-        
+
         [OperationContract]
         [WebInvoke(Method = "POST",
             BodyStyle = WebMessageBodyStyle.Bare,
@@ -99,7 +99,7 @@ namespace TMF.Protheus_HRP.Services.Contratcs
             UriTemplate = "/ListarTiposVinculoRaiz")]
         [FaultContract(typeof(ServiceError))]
         ConsultaGenericaReponse ListarTiposVinculoRaiz(ConsultaDadoGenericoRequest request);
-        
+
         [OperationContract]
         [WebInvoke(Method = "POST",
             BodyStyle = WebMessageBodyStyle.Bare,
@@ -157,7 +157,8 @@ namespace TMF.Protheus_HRP.Services.Contratcs
 
 
         #endregion
-        
+
+        #region [Pendentes]
         [OperationContract]
         [WebInvoke(Method = "POST",
             BodyStyle = WebMessageBodyStyle.Bare,
@@ -593,6 +594,6 @@ namespace TMF.Protheus_HRP.Services.Contratcs
         [FaultContract(typeof(ServiceError))]
         ConsultaGenericaReponse ListarFuncionariosHabilitados(ConsultaDadoGenericoRequest request);
 
-
+        #endregion
     }
 }

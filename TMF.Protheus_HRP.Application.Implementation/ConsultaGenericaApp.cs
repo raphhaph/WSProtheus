@@ -196,7 +196,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
             resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
             return resp;
         }
-        
+
         public ConsultaGenericaReponse ListarRecebimento(ConsultaDadoGenericoRequest request)
         {
             var resp = new ConsultaGenericaReponse();
@@ -218,7 +218,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
             resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
             return resp;
         }
-        
+
         public ConsultaGenericaReponse ListarSituacaoFuncionario(ConsultaDadoGenericoRequest request)
         {
             var resp = new ConsultaGenericaReponse();
@@ -375,6 +375,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
         }
         #endregion
 
+        #region [Pendentes]
 
         public ConsultaGenericaReponse ListarHorarios(ConsultaDadoGenericoRequest request)
         {
@@ -610,5 +611,6 @@ namespace TMF.Protheus_HRP.Application.Implementation
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }
