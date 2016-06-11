@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using TMF.Protheus_HRP.Application.Contracts;
+using TMF.Protheus_HRP.Application.Crosscutting;
 using TMF.Protheus_HRP.DataAccess.Contracts;
 using TMF.Protheus_HRP.Domain.DTO;
-using TMF.Protheus_HRP.Domain.RequestResponse.CabFunc;
-using TMF.Protheus_HRP.Application.Crosscutting;
-using System.Linq;
 using TMF.Protheus_HRP.Domain.RequestResponse.ConsultaGenerica;
+using Models = TMF.Protheus_HRP.Domain.RequestResponse.Models;
+using TMF.Protheus_HRP.Resources;
 
 namespace TMF.Protheus_HRP.Application.Implementation
 {
@@ -18,322 +18,595 @@ namespace TMF.Protheus_HRP.Application.Implementation
         {
             _iConsultaGenericaDal = iConsultaGenericaDal;
         }
-        public ConsultaGenericaReponse ListarTiposAdmissao(ListarTiposAdmissaoRequest request)
+
+
+        #region [Finalizados]
+        public ConsultaGenericaReponse ListarCodigosAdicionalTempoServico(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.CodigosAdicionalTempoServico);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarAlteracoesSalariais(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.AlteracaoSalarial);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarEstadoCivil(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.EstadoCivil);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarGrauInstrucao(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.GrauInstrucao);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarTiposAfastamento(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.TipoAfastamento);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarNacionalidades(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.Nacionalidade);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarOrgaoRG(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.OrgaoRG);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarTiposVinculoRaiz(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.VinculoRaiz);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+        
+        public ConsultaGenericaReponse ListarRecebimento(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.Recebimento);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+        
+        public ConsultaGenericaReponse ListarSituacaoFuncionario(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.SituacaoFuncionario);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarTiposAdmissao(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.TipoAdmissao);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarTiposDemissao(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.TipoDemissao);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarTiposFuncionario(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.TipoFuncionario);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarUF(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.BuscarDadosSX5(request.Empresa, request.Filial, TiposSX5.UF);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarBancos(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.ListarBancos(request.Empresa, request.Filial);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ListarAgenciasBancoResponse ListarAgenciasBanco(ListarAgenciasRequest request)
+        {
+            var resp = new ListarAgenciasBancoResponse();
+            if (String.IsNullOrWhiteSpace(request.CodigoBanco))
+                resp.BusinessErrors.Add(Messages.CodigoNulo);
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var agencias = _iConsultaGenericaDal.ListarAgenciasBanco(request.CodigoBanco, request.Empresa, request.Filial);
+            resp.IsValid = true;
+            resp.Agencias = agencias.ProjectedAsCollection<Models.AgenciaBanco>();
+            return resp;
+        }
+        #endregion
+
+
+        public ConsultaGenericaReponse ListarHorarios(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTiposDemissao(ListarTiposDemissaoRequest request)
+        public ConsultaGenericaReponse ListarDepartamentos(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarHorarios(ListarHorariosRequest request)
+        public ConsultaGenericaReponse ListarCentroCustoDepartamento(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarDepartamentos(ListarDepartamentosRequest request)
+        public ConsultaGenericaReponse ListarCentroCusto(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCentroCustoDepartamento(ListarCentroCustoDepartamentoRequest request)
+        public ConsultaGenericaReponse ListarCargos(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCentroCusto(ListarCentroCustoRequest request)
+        public ConsultaGenericaReponse ListarPaises(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCargos(ListarCargosRequest request)
+        public ConsultaGenericaReponse ListarUnidadesFederativa(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarEstadoCivil(ListarEstadoCivilRequest request)
+        public ConsultaGenericaReponse ListarCBO(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarPaises(ListarPaisesRequest request)
+        public ConsultaGenericaReponse ListarFuncoes(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarUnidadesFederativa(ListarUnidadesFederativaRequest request)
+        public ConsultaGenericaReponse ListarCidades(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarGrauInstrucao(ListarGrauInstrucaoRequest request)
+        public ConsultaGenericaReponse ListarTurnos(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarBancos(ListarBancosRequest request)
+        public ConsultaGenericaReponse ListarNivelSalario(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarAgencias(ListarAgenciasRequest request)
+        public ConsultaGenericaReponse ListarMotivosAfastramento(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCBO(ListarCBORequest request)
+        public ConsultaGenericaReponse ListarVerbas(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarFuncoes(ListarFuncoesRequest request)
+        public ConsultaGenericaReponse ListarCodigosFolha(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarUF(ListarUFRequest request)
+        public ConsultaGenericaReponse ListarSindicatos(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCidades(ListarCidadesRequest request)
+        public ConsultaGenericaReponse ListarCodigosLinhaTransporte(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTurnos(ListarTurnosRequest request)
+        public ConsultaGenericaReponse ListarTiposPrevidencia(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarNivelSalario(ListarNivelSalarioRequest request)
+        public ConsultaGenericaReponse ListarHorariosPadrao(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarAlteracoesSalariais(ListarAlteracoesSalariaisRequest request)
+        public ConsultaGenericaReponse ListarRegrasApontamentoFuncionario(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarMovtivosAlteracao(ListarMovtivosAlteracaoRequest request)
+        public ConsultaGenericaReponse ListarTipoLogradouro(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarRecebimento(ListarRecebimentoRequest request)
+        public ConsultaGenericaReponse ListarFornecedoresPlanoSaude(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTiposVinculoRaiz(ListarTiposVinculoRaizRequest request)
+        public ConsultaGenericaReponse ListarCodigosPlanoSaude(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarOrgaoRG(ListarOrgaoRGRequest request)
+        public ConsultaGenericaReponse ListarTipoContrato(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarNacionalidades(ListarNacionalidadesRequest request)
+        public ConsultaGenericaReponse ListarTipoDeficiencia(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarSituacaoFuncionario(ListarSituacaoFuncionarioRequest request)
+        public ConsultaGenericaReponse ListarAssistenciaMedica(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTiposAfastamento(ListarTiposAfastamentoRequest request)
+        public ConsultaGenericaReponse ListarAssistenciaOdonto(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarMotivosAfastramento(ListarMotivosAfastramentoRequest request)
+        public ConsultaGenericaReponse ListarSexo(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarVerbas(ListarVerbasRequest request)
+        public ConsultaGenericaReponse ListarAbonoPecuniario(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCodigosFolha(ListarCodigosFolhaRequest request)
+        public ConsultaGenericaReponse ListarTipoFerias(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarSindicatos(ListarSindicatosRequest request)
+        public ConsultaGenericaReponse ListarDependentesAssistenciaMedica(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTiposFuncionario(ListarTiposFuncionarioRequest request)
+        public ConsultaGenericaReponse ListarDependentesAssistenciaOdonto(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCodigosLinhaTransporte(ListarCodigosLinhaTransporteRequest request)
+        public ConsultaGenericaReponse ListarAlteracaoFamiliar(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTiposPrevidencia(ListarTiposPrevidenciaRequest request)
+        public ConsultaGenericaReponse ListarRacaCor(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTempoAdicional(ListarTempoAdicionalRequest request)
+        public ConsultaGenericaReponse ListarTiposVerba(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarHorariosPadrao(ListarHorariosPadraoRequest request)
+        public ConsultaGenericaReponse ListarTipoLancamento(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarRegrasApontamentoFuncionario(ListarRegrasApontamentoFuncionarioRequest request)
+        public ConsultaGenericaReponse ChecarFuncionarioDeficiente(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTipoLogradouro(ListarTipoLogradouroRequest request)
+        public ConsultaGenericaReponse ListarTiposDeficiencia(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarFornecedoresPlanoSaude(ListarFornecedoresPlanoSaudeRequest request)
+        public ConsultaGenericaReponse ListarContaSalario(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCodigosPlanoSaude(ListarCodigosPlanoSaudeRequest request)
+        public ConsultaGenericaReponse ChecarContratoTrabalho(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTipoContrato(ListarTipoContratoRequest request)
+        public ConsultaGenericaReponse BuscarCategoriaFuncionario(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTipoDeficiencia(ListarTipoDeficienciaRequest request)
+        public ConsultaGenericaReponse ChecarCompensacaoSabado(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarAssistenciaMedica(ListarAssistenciaMedicaRequest request)
+        public ConsultaGenericaReponse ListarTipoEnderecos(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarAssistenciaOdonto(ListarAssistenciaOdontoRequest request)
+        public ConsultaGenericaReponse ListarCodigosExposicaoNocivo(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarSexo(ListarSexoRequest request)
+        public ConsultaGenericaReponse ListarMaoDeObra(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarAbonoPecuniario(ListarAbonoPecuniarioRequest request)
+        public ConsultaGenericaReponse ListarFiliais(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarTipoFerias(ListarTipoFeriasRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarDependentesAssistenciaMedica(ListarDependentesAssistenciaMedicaRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarDependentesAssistenciaOdonto(ListarDependentesAssistenciaOdontoRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarAlteracaoFamiliar(ListarAlteracaoFamiliarRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarRacaCor(ListarRacaCorRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarTiposVerba(ListarTiposVerbaRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarTipoLancamento(ListarTipoLancamentoRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ChecarFuncionarioDeficiente(ChecarFuncionarioDeficienteRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarTiposDeficiencia(ListarTiposDeficienciaRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarContaSalario(ListarContaSalarioRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ChecarContratoTrabalho(ChecarContratoTrabalhoRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse BuscarCategoriaFuncionario(BuscarCategoriaFuncionarioRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ChecarCompensacaoSabado(ChecarCompensacaoSabadoRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarTipoEnderecos(ListarTipoEnderecosRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarCodigosExposicaoNocivo(ListarCodigosExposicaoNocivoRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarMaoDeObra(ListarMaoDeObraRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarFiliais(ListarFiliaisRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarFuncionariosHabilitados(ListarFuncionariosHabilitadosRequest request)
+        public ConsultaGenericaReponse ListarFuncionariosHabilitados(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }

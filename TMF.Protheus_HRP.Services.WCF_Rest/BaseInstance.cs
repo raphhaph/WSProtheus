@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Configuration;
 using System.Text;
-using TMF.Protheus_HRP.Application.Contracts;
-using TMF.Protheus_HRP.Services.Seedwork.InstanceProviders;
 
 namespace TMF.Protheus_HRP.Services.WCF_Rest
 {

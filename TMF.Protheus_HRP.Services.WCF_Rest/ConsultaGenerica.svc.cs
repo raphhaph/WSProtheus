@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
-using System.Text;
 using TMF.Protheus_HRP.Application.Contracts;
 using TMF.Protheus_HRP.Domain.RequestResponse.ConsultaGenerica;
 using TMF.Protheus_HRP.Resources;
@@ -25,7 +20,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
         {
             _iConsultaGenericaApp = iApp;
         }
-        public ConsultaGenericaReponse ListarTiposAdmissao(ListarTiposAdmissaoRequest request)
+        public ConsultaGenericaReponse ListarTiposAdmissao(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -34,7 +29,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTiposAdmissao(request);
         }
-        public ConsultaGenericaReponse ListarTiposDemissao(ListarTiposDemissaoRequest request)
+        public ConsultaGenericaReponse ListarTiposDemissao(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -43,7 +38,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTiposDemissao(request);
         }
-        public ConsultaGenericaReponse ListarHorarios(ListarHorariosRequest request)
+        public ConsultaGenericaReponse ListarHorarios(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -52,7 +47,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarHorarios(request);
         }
-        public ConsultaGenericaReponse ListarDepartamentos(ListarDepartamentosRequest request)
+        public ConsultaGenericaReponse ListarDepartamentos(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -61,7 +56,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarDepartamentos(request);
         }
-        public ConsultaGenericaReponse ListarCentroCustoDepartamento(ListarCentroCustoDepartamentoRequest request)
+        public ConsultaGenericaReponse ListarCentroCustoDepartamento(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -70,7 +65,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarCentroCustoDepartamento(request);
         }
-        public ConsultaGenericaReponse ListarCentroCusto(ListarCentroCustoRequest request)
+        public ConsultaGenericaReponse ListarCentroCusto(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -79,7 +74,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarCentroCusto(request);
         }
-        public ConsultaGenericaReponse ListarCargos(ListarCargosRequest request)
+        public ConsultaGenericaReponse ListarCargos(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -88,7 +83,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarCargos(request);
         }
-        public ConsultaGenericaReponse ListarEstadoCivil(ListarEstadoCivilRequest request)
+        public ConsultaGenericaReponse ListarEstadoCivil(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -97,7 +92,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarEstadoCivil(request);
         }
-        public ConsultaGenericaReponse ListarPaises(ListarPaisesRequest request)
+        public ConsultaGenericaReponse ListarPaises(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -106,7 +101,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarPaises(request);
         }
-        public ConsultaGenericaReponse ListarUnidadesFederativa(ListarUnidadesFederativaRequest request)
+        public ConsultaGenericaReponse ListarUnidadesFederativa(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -115,7 +110,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarUnidadesFederativa(request);
         }
-        public ConsultaGenericaReponse ListarGrauInstrucao(ListarGrauInstrucaoRequest request)
+        public ConsultaGenericaReponse ListarGrauInstrucao(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -124,7 +119,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarGrauInstrucao(request);
         }
-        public ConsultaGenericaReponse ListarBancos(ListarBancosRequest request)
+        public ConsultaGenericaReponse ListarBancos(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -133,16 +128,16 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarBancos(request);
         }
-        public ConsultaGenericaReponse ListarAgencias(ListarAgenciasRequest request)
+        public ListarAgenciasBancoResponse ListarAgencias(ListarAgenciasRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
-                return new ConsultaGenericaReponse
+                return new ListarAgenciasBancoResponse
                 {
                     BusinessErrors = new List<string>() { Messages.ErroAutenticacao },
                 };
-            return _iConsultaGenericaApp.ListarAgencias(request);
+            return _iConsultaGenericaApp.ListarAgenciasBanco(request);
         }
-        public ConsultaGenericaReponse ListarCBO(ListarCBORequest request)
+        public ConsultaGenericaReponse ListarCBO(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -151,7 +146,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarCBO(request);
         }
-        public ConsultaGenericaReponse ListarFuncoes(ListarFuncoesRequest request)
+        public ConsultaGenericaReponse ListarFuncoes(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -160,7 +155,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarFuncoes(request);
         }
-        public ConsultaGenericaReponse ListarUF(ListarUFRequest request)
+        public ConsultaGenericaReponse ListarUF(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -169,7 +164,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarUF(request);
         }
-        public ConsultaGenericaReponse ListarCidades(ListarCidadesRequest request)
+        public ConsultaGenericaReponse ListarCidades(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -178,7 +173,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarCidades(request);
         }
-        public ConsultaGenericaReponse ListarTurnos(ListarTurnosRequest request)
+        public ConsultaGenericaReponse ListarTurnos(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -187,7 +182,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTurnos(request);
         }
-        public ConsultaGenericaReponse ListarNivelSalario(ListarNivelSalarioRequest request)
+        public ConsultaGenericaReponse ListarNivelSalario(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -196,7 +191,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarNivelSalario(request);
         }
-        public ConsultaGenericaReponse ListarAlteracoesSalariais(ListarAlteracoesSalariaisRequest request)
+        public ConsultaGenericaReponse ListarAlteracoesSalariais(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -205,16 +200,8 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarAlteracoesSalariais(request);
         }
-        public ConsultaGenericaReponse ListarMovtivosAlteracao(ListarMovtivosAlteracaoRequest request)
-        {
-            if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
-                return new ConsultaGenericaReponse
-                {
-                    BusinessErrors = new List<string>() { Messages.ErroAutenticacao },
-                };
-            return _iConsultaGenericaApp.ListarMovtivosAlteracao(request);
-        }
-        public ConsultaGenericaReponse ListarRecebimento(ListarRecebimentoRequest request)
+     
+        public ConsultaGenericaReponse ListarRecebimento(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -223,7 +210,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarRecebimento(request);
         }
-        public ConsultaGenericaReponse ListarTiposVinculoRaiz(ListarTiposVinculoRaizRequest request)
+        public ConsultaGenericaReponse ListarTiposVinculoRaiz(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -232,7 +219,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTiposVinculoRaiz(request);
         }
-        public ConsultaGenericaReponse ListarOrgaoRG(ListarOrgaoRGRequest request)
+        public ConsultaGenericaReponse ListarOrgaoRG(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -241,7 +228,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarOrgaoRG(request);
         }
-        public ConsultaGenericaReponse ListarNacionalidades(ListarNacionalidadesRequest request)
+        public ConsultaGenericaReponse ListarNacionalidades(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -250,7 +237,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarNacionalidades(request);
         }
-        public ConsultaGenericaReponse ListarSituacaoFuncionario(ListarSituacaoFuncionarioRequest request)
+        public ConsultaGenericaReponse ListarSituacaoFuncionario(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -259,7 +246,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarSituacaoFuncionario(request);
         }
-        public ConsultaGenericaReponse ListarTiposAfastamento(ListarTiposAfastamentoRequest request)
+        public ConsultaGenericaReponse ListarTiposAfastamento(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -268,7 +255,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTiposAfastamento(request);
         }
-        public ConsultaGenericaReponse ListarMotivosAfastramento(ListarMotivosAfastramentoRequest request)
+        public ConsultaGenericaReponse ListarMotivosAfastramento(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -277,7 +264,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarMotivosAfastramento(request);
         }
-        public ConsultaGenericaReponse ListarVerbas(ListarVerbasRequest request)
+        public ConsultaGenericaReponse ListarVerbas(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -286,7 +273,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarVerbas(request);
         }
-        public ConsultaGenericaReponse ListarCodigosFolha(ListarCodigosFolhaRequest request)
+        public ConsultaGenericaReponse ListarCodigosFolha(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -295,7 +282,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarCodigosFolha(request);
         }
-        public ConsultaGenericaReponse ListarSindicatos(ListarSindicatosRequest request)
+        public ConsultaGenericaReponse ListarSindicatos(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -304,7 +291,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarSindicatos(request);
         }
-        public ConsultaGenericaReponse ListarTiposFuncionario(ListarTiposFuncionarioRequest request)
+        public ConsultaGenericaReponse ListarTiposFuncionario(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -313,7 +300,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTiposFuncionario(request);
         }
-        public ConsultaGenericaReponse ListarCodigosLinhaTransporte(ListarCodigosLinhaTransporteRequest request)
+        public ConsultaGenericaReponse ListarCodigosLinhaTransporte(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -322,7 +309,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarCodigosLinhaTransporte(request);
         }
-        public ConsultaGenericaReponse ListarTiposPrevidencia(ListarTiposPrevidenciaRequest request)
+        public ConsultaGenericaReponse ListarTiposPrevidencia(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -331,16 +318,16 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTiposPrevidencia(request);
         }
-        public ConsultaGenericaReponse ListarTempoAdicional(ListarTempoAdicionalRequest request)
+        public ConsultaGenericaReponse ListarCodigosAdicionalTempoServico(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
                 {
                     BusinessErrors = new List<string>() { Messages.ErroAutenticacao },
                 };
-            return _iConsultaGenericaApp.ListarTempoAdicional(request);
+            return _iConsultaGenericaApp.ListarCodigosAdicionalTempoServico(request);
         }
-        public ConsultaGenericaReponse ListarHorariosPadrao(ListarHorariosPadraoRequest request)
+        public ConsultaGenericaReponse ListarHorariosPadrao(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -349,7 +336,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarHorariosPadrao(request);
         }
-        public ConsultaGenericaReponse ListarRegrasApontamentoFuncionario(ListarRegrasApontamentoFuncionarioRequest request)
+        public ConsultaGenericaReponse ListarRegrasApontamentoFuncionario(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -358,7 +345,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarRegrasApontamentoFuncionario(request);
         }
-        public ConsultaGenericaReponse ListarTipoLogradouro(ListarTipoLogradouroRequest request)
+        public ConsultaGenericaReponse ListarTipoLogradouro(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -367,7 +354,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTipoLogradouro(request);
         }
-        public ConsultaGenericaReponse ListarFornecedoresPlanoSaude(ListarFornecedoresPlanoSaudeRequest request)
+        public ConsultaGenericaReponse ListarFornecedoresPlanoSaude(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -376,7 +363,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarFornecedoresPlanoSaude(request);
         }
-        public ConsultaGenericaReponse ListarCodigosPlanoSaude(ListarCodigosPlanoSaudeRequest request)
+        public ConsultaGenericaReponse ListarCodigosPlanoSaude(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -385,7 +372,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarCodigosPlanoSaude(request);
         }
-        public ConsultaGenericaReponse ListarTipoContrato(ListarTipoContratoRequest request)
+        public ConsultaGenericaReponse ListarTipoContrato(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -394,7 +381,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTipoContrato(request);
         }
-        public ConsultaGenericaReponse ListarTipoDeficiencia(ListarTipoDeficienciaRequest request)
+        public ConsultaGenericaReponse ListarTipoDeficiencia(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -403,7 +390,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTipoDeficiencia(request);
         }
-        public ConsultaGenericaReponse ListarAssistenciaMedica(ListarAssistenciaMedicaRequest request)
+        public ConsultaGenericaReponse ListarAssistenciaMedica(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -412,7 +399,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarAssistenciaMedica(request);
         }
-        public ConsultaGenericaReponse ListarAssistenciaOdonto(ListarAssistenciaOdontoRequest request)
+        public ConsultaGenericaReponse ListarAssistenciaOdonto(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -421,7 +408,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarAssistenciaOdonto(request);
         }
-        public ConsultaGenericaReponse ListarSexo(ListarSexoRequest request)
+        public ConsultaGenericaReponse ListarSexo(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -430,7 +417,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarSexo(request);
         }
-        public ConsultaGenericaReponse ListarAbonoPecuniario(ListarAbonoPecuniarioRequest request)
+        public ConsultaGenericaReponse ListarAbonoPecuniario(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -439,7 +426,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarAbonoPecuniario(request);
         }
-        public ConsultaGenericaReponse ListarTipoFerias(ListarTipoFeriasRequest request)
+        public ConsultaGenericaReponse ListarTipoFerias(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -448,7 +435,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTipoFerias(request);
         }
-        public ConsultaGenericaReponse ListarDependentesAssistenciaMedica(ListarDependentesAssistenciaMedicaRequest request)
+        public ConsultaGenericaReponse ListarDependentesAssistenciaMedica(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -457,7 +444,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarDependentesAssistenciaMedica(request);
         }
-        public ConsultaGenericaReponse ListarDependentesAssistenciaOdonto(ListarDependentesAssistenciaOdontoRequest request)
+        public ConsultaGenericaReponse ListarDependentesAssistenciaOdonto(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -466,7 +453,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarDependentesAssistenciaOdonto(request);
         }
-        public ConsultaGenericaReponse ListarAlteracaoFamiliar(ListarAlteracaoFamiliarRequest request)
+        public ConsultaGenericaReponse ListarAlteracaoFamiliar(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -475,7 +462,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarAlteracaoFamiliar(request);
         }
-        public ConsultaGenericaReponse ListarRacaCor(ListarRacaCorRequest request)
+        public ConsultaGenericaReponse ListarRacaCor(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -484,7 +471,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarRacaCor(request);
         }
-        public ConsultaGenericaReponse ListarTiposVerba(ListarTiposVerbaRequest request)
+        public ConsultaGenericaReponse ListarTiposVerba(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -492,7 +479,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                     BusinessErrors = new List<string>() { Messages.ErroAutenticacao },
                 }; return _iConsultaGenericaApp.ListarTiposVerba(request);
         }
-        public ConsultaGenericaReponse ListarTipoLancamento(ListarTipoLancamentoRequest request)
+        public ConsultaGenericaReponse ListarTipoLancamento(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -501,14 +488,14 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTipoLancamento(request);
         }
-        public ConsultaGenericaReponse ChecarFuncionarioDeficiente(ChecarFuncionarioDeficienteRequest request)
+        public ConsultaGenericaReponse ChecarFuncionarioDeficiente(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse { BusinessErrors = new List<string>() { Messages.ErroAutenticacao }, }
                     ;
             return _iConsultaGenericaApp.ChecarFuncionarioDeficiente(request);
         }
-        public ConsultaGenericaReponse ListarTiposDeficiencia(ListarTiposDeficienciaRequest request)
+        public ConsultaGenericaReponse ListarTiposDeficiencia(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -517,14 +504,14 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTiposDeficiencia(request);
         }
-        public ConsultaGenericaReponse ListarContaSalario(ListarContaSalarioRequest request)
+        public ConsultaGenericaReponse ListarContaSalario(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse { BusinessErrors = new List<string>() { Messages.ErroAutenticacao }, }
                     ;
             return _iConsultaGenericaApp.ListarContaSalario(request);
         }
-        public ConsultaGenericaReponse ChecarContratoTrabalho(ChecarContratoTrabalhoRequest request)
+        public ConsultaGenericaReponse ChecarContratoTrabalho(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -533,7 +520,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ChecarContratoTrabalho(request);
         }
-        public ConsultaGenericaReponse BuscarCategoriaFuncionario(BuscarCategoriaFuncionarioRequest request)
+        public ConsultaGenericaReponse BuscarCategoriaFuncionario(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -542,7 +529,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.BuscarCategoriaFuncionario(request);
         }
-        public ConsultaGenericaReponse ChecarCompensacaoSabado(ChecarCompensacaoSabadoRequest request)
+        public ConsultaGenericaReponse ChecarCompensacaoSabado(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -551,7 +538,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ChecarCompensacaoSabado(request);
         }
-        public ConsultaGenericaReponse ListarTipoEnderecos(ListarTipoEnderecosRequest request)
+        public ConsultaGenericaReponse ListarTipoEnderecos(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -560,7 +547,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarTipoEnderecos(request);
         }
-        public ConsultaGenericaReponse ListarCodigosExposicaoNocivo(ListarCodigosExposicaoNocivoRequest request)
+        public ConsultaGenericaReponse ListarCodigosExposicaoNocivo(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -569,7 +556,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarCodigosExposicaoNocivo(request);
         }
-        public ConsultaGenericaReponse ListarMaoDeObra(ListarMaoDeObraRequest request)
+        public ConsultaGenericaReponse ListarMaoDeObra(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -578,7 +565,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarMaoDeObra(request);
         }
-        public ConsultaGenericaReponse ListarFiliais(ListarFiliaisRequest request)
+        public ConsultaGenericaReponse ListarFiliais(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse
@@ -587,7 +574,7 @@ namespace TMF.Protheus_HRP.Services.WCF_Rest
                 };
             return _iConsultaGenericaApp.ListarFiliais(request);
         }
-        public ConsultaGenericaReponse ListarFuncionariosHabilitados(ListarFuncionariosHabilitadosRequest request)
+        public ConsultaGenericaReponse ListarFuncionariosHabilitados(ConsultaDadoGenericoRequest request)
         {
             if (!DecodeFrom64(request.Usuario).Equals(Usuario) || !DecodeFrom64(request.Senha).Equals(Senha))
                 return new ConsultaGenericaReponse

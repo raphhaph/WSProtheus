@@ -26,6 +26,10 @@ namespace TMF.Protheus_HRP.Application.Crosscutting
             Mapper.CreateMap<Dto.CabFuncionario, Funcionario>()
                 .ReverseMap();
             Mapper.CreateMap<List<Dto.CabFuncionario>, ListarCabFuncionarioResponse>().ConvertUsing<ListarMatriculaConversor>();
+
+
+            Mapper.CreateMap<Dto.AgenciaBanco, AgenciaBanco>().ReverseMap();
+            Mapper.CreateMap<Dto.DadoGenerico, DadoGenerico>().ReverseMap();
             #endregion
 
         }

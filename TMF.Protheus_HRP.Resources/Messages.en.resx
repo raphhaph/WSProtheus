@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CodigoNulo" xml:space="preserve">
+    <value>The Code cannot be null.</value>
+  </data>
+  <data name="EmpresaNula" xml:space="preserve">
+    <value>The Company cannot be null.</value>
+  </data>
   <data name="ErroAutenticacao" xml:space="preserve">
     <value>Authentication Fail : Invalid User or Password</value>
+  </data>
+  <data name="FilialNula" xml:space="preserve">
+    <value>The Branch cannot be null.</value>
   </data>
 </root>

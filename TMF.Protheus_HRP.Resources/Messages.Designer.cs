@@ -61,11 +61,38 @@ namespace TMF.Protheus_HRP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O código não pode ser nulo..
+        /// </summary>
+        public static string CodigoNulo {
+            get {
+                return ResourceManager.GetString("CodigoNulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A empresa não pode ser nula..
+        /// </summary>
+        public static string EmpresaNula {
+            get {
+                return ResourceManager.GetString("EmpresaNula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Falha de autenticação: usuário ou senha inválido..
         /// </summary>
         public static string ErroAutenticacao {
             get {
                 return ResourceManager.GetString("ErroAutenticacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A filial não pode ser nula..
+        /// </summary>
+        public static string FilialNula {
+            get {
+                return ResourceManager.GetString("FilialNula", resourceCulture);
             }
         }
     }

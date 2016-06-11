@@ -14,9 +14,6 @@ namespace Infrastructure.Database.Extensions
                 lista.Add(mapper(reader));
             }
 
-            reader.Close();
-            reader = null;
-
             return lista;
         }
     }

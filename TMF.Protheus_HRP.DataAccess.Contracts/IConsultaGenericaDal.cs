@@ -8,6 +8,8 @@ namespace TMF.Protheus_HRP.DataAccess.Contracts
 {
     public interface IConsultaGenericaDal
     {
-
+        List<DadoGenerico> BuscarDadosSX5(string pEmpresa, string pFilial,TiposSX5 tipo);
+        List<DadoGenerico> ListarBancos(string pEmpresa, string pFilial);
+        List<AgenciaBanco> ListarAgenciasBanco(string pCodigoBanco, string pEmpresa, string pFilial);
     }
 }

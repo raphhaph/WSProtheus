@@ -5,13 +5,11 @@ using TMF.Protheus_HRP.Domain.RequestResponse.Base;
 namespace TMF.Protheus_HRP.Domain.RequestResponse.ConsultaGenerica 
 {                                                                  
     [DataContract]                                                 
-    public class ListarAgenciasRequest : RequestBase
+    public class ConsultaDadoGenericoRequest : RequestBase
     {
-        [DataMember]
-        public String CodigoBanco { get; set; }
         [DataMember]
         public String Empresa { get; set; }
         [DataMember]
-        public String Filial { get; set; }                                                  
+        public String Filial { get; set; }                                                             
     }                                                              
 }                                                                  
