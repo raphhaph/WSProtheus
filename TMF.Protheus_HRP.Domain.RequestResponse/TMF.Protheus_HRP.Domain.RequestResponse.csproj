@@ -55,6 +55,7 @@
     <Compile Include="Base\ResponseBase.cs" />
     <Compile Include="ConsultaGenerica\ListarAgenciasBancoResponse.cs" />
     <Compile Include="ConsultaGenerica\ConsultaGenericaReponse.cs" />
+    <Compile Include="ConsultaGenerica\ListarCentroCustoRequest.cs" />
     <Compile Include="ConsultaGenerica\ListarAgenciasRequest.cs" />
     <Compile Include="ConsultaGenerica\ConsultaDadoGenericoRequest.cs" />
     <Compile Include="Demonstrativo\BuscarDemonstrativoRequest.cs" />

@@ -24,7 +24,7 @@ namespace TMF.Protheus_HRP.Application.Contracts
 
         ConsultaGenericaReponse ListarCentroCustoDepartamento(ConsultaDadoGenericoRequest request);
 
-        ConsultaGenericaReponse ListarCentroCusto(ConsultaDadoGenericoRequest request);
+        ConsultaGenericaReponse ListarCentroCusto(ListarCentroCustoRequest request);
 
         ConsultaGenericaReponse ListarCargos(ConsultaDadoGenericoRequest request);
 

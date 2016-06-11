@@ -155,6 +155,34 @@ namespace TMF.Protheus_HRP.Services.Contratcs
         [FaultContract(typeof(ServiceError))]
         ConsultaGenericaReponse ListarUF(ConsultaDadoGenericoRequest request);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "/ListarCentroCusto")]
+        [FaultContract(typeof(ServiceError))]
+        ConsultaGenericaReponse ListarCentroCusto(ListarCentroCustoRequest request);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "/ListarCentroCustoDepartamento")]
+        [FaultContract(typeof(ServiceError))]
+        ConsultaGenericaReponse ListarCentroCustoDepartamento(ConsultaDadoGenericoRequest request);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "/ListarCargos")]
+        [FaultContract(typeof(ServiceError))]
+        ConsultaGenericaReponse ListarCargos(ConsultaDadoGenericoRequest request);
+
 
         #endregion
 
@@ -177,32 +205,7 @@ namespace TMF.Protheus_HRP.Services.Contratcs
         [FaultContract(typeof(ServiceError))]
         ConsultaGenericaReponse ListarDepartamentos(ConsultaDadoGenericoRequest request);
 
-        [OperationContract]
-        [WebInvoke(Method = "POST",
-            BodyStyle = WebMessageBodyStyle.Bare,
-            RequestFormat = WebMessageFormat.Json,
-            ResponseFormat = WebMessageFormat.Json,
-            UriTemplate = "/ListarCentroCustoDepartamento")]
-        [FaultContract(typeof(ServiceError))]
-        ConsultaGenericaReponse ListarCentroCustoDepartamento(ConsultaDadoGenericoRequest request);
 
-        [OperationContract]
-        [WebInvoke(Method = "POST",
-            BodyStyle = WebMessageBodyStyle.Bare,
-            RequestFormat = WebMessageFormat.Json,
-            ResponseFormat = WebMessageFormat.Json,
-            UriTemplate = "/ListarCentroCusto")]
-        [FaultContract(typeof(ServiceError))]
-        ConsultaGenericaReponse ListarCentroCusto(ConsultaDadoGenericoRequest request);
-
-        [OperationContract]
-        [WebInvoke(Method = "POST",
-            BodyStyle = WebMessageBodyStyle.Bare,
-            RequestFormat = WebMessageFormat.Json,
-            ResponseFormat = WebMessageFormat.Json,
-            UriTemplate = "/ListarCargos")]
-        [FaultContract(typeof(ServiceError))]
-        ConsultaGenericaReponse ListarCargos(ConsultaDadoGenericoRequest request);
 
 
         [OperationContract]

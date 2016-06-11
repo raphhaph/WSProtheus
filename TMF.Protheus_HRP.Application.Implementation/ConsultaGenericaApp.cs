@@ -373,6 +373,76 @@ namespace TMF.Protheus_HRP.Application.Implementation
             resp.Agencias = agencias.ProjectedAsCollection<Models.AgenciaBanco>();
             return resp;
         }
+
+        //TESTAR
+
+        public ConsultaGenericaReponse ListarCentroCustoDepartamento(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.ListarCentroCustoDepartamento(request.Empresa, request.Filial);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarCentroCusto(ListarCentroCustoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.ListarCentroCusto(request.Empresa, request.Filial, request.CentroCusto);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+        public ConsultaGenericaReponse ListarCargos(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.ListarCargos(request.Empresa, request.Filial);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+
+
         #endregion
 
         #region [Pendentes]
@@ -386,21 +456,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
         {
             throw new NotImplementedException();
         }
-
-        public ConsultaGenericaReponse ListarCentroCustoDepartamento(ConsultaDadoGenericoRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarCentroCusto(ConsultaDadoGenericoRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ConsultaGenericaReponse ListarCargos(ConsultaDadoGenericoRequest request)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public ConsultaGenericaReponse ListarPaises(ConsultaDadoGenericoRequest request)
         {
