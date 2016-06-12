@@ -157,7 +157,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                     {
                         if (reader["RV_TIPOCOD"].ToString() == "2")
                         {
-                            retorno.Cooperativas.Add(new Evento
+                            retorno.Eventos.Add(new Evento
                             {
                                 CodigoRubrica = reader["RD_PD"].ToString(),
                                 DescricaoRubrica = reader["RV_DESC"].ToString(),
@@ -170,7 +170,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                     {
                         if (reader["RV_TIPOCOD"].ToString() == "1")
                         {
-                            retorno.Cooperativas.Add(new Evento
+                            retorno.Eventos.Add(new Evento
                             {
                                 CodigoRubrica = reader["RD_PD"].ToString(),
                                 DescricaoRubrica = reader["RV_DESC"].ToString(),
@@ -180,7 +180,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                         }
                         else if (reader["RV_TIPOCOD"].ToString() == "2")
                         {
-                            retorno.Cooperativas.Add(new Evento
+                            retorno.Eventos.Add(new Evento
                             {
                                 CodigoRubrica = reader["RD_PD"].ToString(),
                                 DescricaoRubrica = reader["RV_DESC"].ToString(),
