@@ -3,7 +3,7 @@ using System.ServiceModel.Web;
 using TMF.Protheus_HRP.Domain.RequestResponse.Demonstrativo;
 using TMF.Protheus_HRP.Domain.RequestResponse.FaultContracts;
 
-namespace TMF.Protheus_HRP.Application.Contracts
+namespace TMF.Protheus_HRP.Services.Contratcs
 {
     [ServiceContract]
     public interface IDemonstrativo

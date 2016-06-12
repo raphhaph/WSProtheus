@@ -31,13 +31,13 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
             };
             var str = new StringBuilder();
             str.Append(" SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;   ");
-            str.AppendFormat(" SELECT RJ_FUNCAO FROM {0}dbo.SRJ{1}0 WHERE RJ_FUNCAO = @COD AND RJ_FILIAL = @FILIAL ", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" SELECT RJ_DESC FROM {0}dbo.SRJ{1}0 WHERE RJ_FUNCAO = @COD AND RJ_FILIAL = @FILIAL ", linkedServerForQuery, pEmpresa);
             str.Append(" UNION ");
-            str.AppendFormat(" SELECT RJ_FUNCAO FROM {0}dbo.SRJ{1}0 WHERE RJ_FUNCAO = @COD ", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" SELECT RJ_DESC FROM {0}dbo.SRJ{1}0 WHERE RJ_FUNCAO = @COD ", linkedServerForQuery, pEmpresa);
             using (var reader = ExecuteReader(str.ToString(), CommandType.Text, parameters))
             {
                 if (reader.Read())
-                    retorno = reader["RJ_FUNCAO"].ToString();
+                    retorno = reader["RJ_DESC"].ToString();
                 reader.Close();
                 return retorno;
             }

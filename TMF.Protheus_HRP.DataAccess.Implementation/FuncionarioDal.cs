@@ -24,13 +24,14 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
             var linkedServerForQuery = ConfigurationManager.AppSettings["LinkedServerForQuery"];
             var parameters = new List<IDbDataParameter>
             {
-                new SqlParameter("@FILIAL", SqlDbType.VarChar){Value = pFilial},
+                new SqlParameter("@pCodFilial", SqlDbType.VarChar){Value = pFilial},
+                new SqlParameter("@pMat", SqlDbType.VarChar){Value = matricula},
             };
             var str = new StringBuilder();
             str.Append(" SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;   ");
-            str.AppendFormat(" SELECT * FROM {0}dbo.SRA{1}0 WHERE RA_MAT = @pMat AND RA_FILIAL = @pCodFilial AND D_E_L_E_T_ <> '*' ", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" SELECT RA_NOME,RA_CIC FROM {0}dbo.SRA{1}0 WHERE RA_MAT = @pMat AND RA_FILIAL = @pCodFilial AND D_E_L_E_T_ <> '*' ", linkedServerForQuery, pEmpresa);
             str.Append(" UNION ");
-            str.AppendFormat(" SELECT * FROM {0}dbo.SRA{1}0 WHERE RA_MAT = @pMat AND D_E_L_E_T_ <> '*' ", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" SELECT RA_NOME,RA_CIC FROM {0}dbo.SRA{1}0 WHERE RA_MAT = @pMat AND D_E_L_E_T_ <> '*' ", linkedServerForQuery, pEmpresa);
             
             using (var reader = ExecuteReader(str.ToString(), CommandType.Text, parameters))
             {

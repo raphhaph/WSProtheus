@@ -1,6 +1,7 @@
 ﻿using System.ServiceModel;
 using TMF.Protheus_HRP.Application.Contracts;
 using TMF.Protheus_HRP.Domain.RequestResponse.Demonstrativo;
+using TMF.Protheus_HRP.Services.Contratcs;
 using TMF.Protheus_HRP.Services.Seedwork.ErrorHandlers;
 using TMF.Protheus_HRP.Services.Seedwork.InstanceProviders;
 

@@ -29,7 +29,8 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                 new SqlParameter("@pPeriodoDe", SqlDbType.VarChar){Value = periodoDe},
                 new SqlParameter("@pPeriodoAte", SqlDbType.VarChar){Value = periodoAte},
             };
-            var sbQuery = new StringBuilder(CriarQueryDemonstrativo(pEmpresa, tipoDemonstrativoProtheus, true));
+            var sbQuery = new StringBuilder(" SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;   ");
+            sbQuery.Append(CriarQueryDemonstrativo(pEmpresa, tipoDemonstrativoProtheus, true));
             sbQuery.Append(" UNION ");
             sbQuery.Append(CriarQueryDemonstrativo(pEmpresa, tipoDemonstrativoProtheus, false));
 
@@ -56,7 +57,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                         firstRow = false;
                         retorno = new Demonstrativo
                         {
-                            Referencia = reader["Referencia"].ToString(),
+                            Referencia = reader["RD_DATARQ"].ToString(),
                             UnidadeOrganizacional = reader["RA_CC"].ToString(),
                             Secao = reader["RA_DEPTO"].ToString(),
                             Matricula = reader["RA_MAT"].ToString(),
@@ -68,7 +69,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                             QuantidadeDependenteSalarioFamilia = reader["RA_DEPSF"].ToString(),
                             QuantidadeDependentesIR = reader["RA_DEPIR"].ToString(),
                             Banco = bancoAgencia.Substring(0, 3),
-                            Agencia = bancoAgencia.Substring(4),
+                            Agencia = bancoAgencia.Substring(3),
                             ContaCorrente = reader["RA_CTDEPSA"].ToString(),
                             DataPagamento = reader["RD_DATPGT"].ToString()
                         };
@@ -81,7 +82,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                             DescricaoRubrica = reader["RV_DESC"].ToString(),
                             Quantidade = Convert.ToDecimal(reader["RD_HORAS"].ToString(), CultureInfo.InvariantCulture)
                         };
-                        switch (reader["RD_DATPGT"].ToString())
+                        switch (reader["RV_TIPOCOD"].ToString())
                         {
                             case "1":
                                 evento.Valor = Convert.ToDecimal(reader["RD_VALOR"].ToString(),
@@ -229,7 +230,6 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
         {
             var linkedServerForQuery = ConfigurationManager.AppSettings["LinkedServerForQuery"];
             var sbQuery = new StringBuilder();
-            sbQuery.Append(" SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;   ");
             sbQuery.Append(" SELECT ");
             sbQuery.Append(" RA_FILIAL, ");
             sbQuery.Append(" RA_MAT, RV_TIPOCOD, RD_TIPO2,");
