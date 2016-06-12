@@ -92,9 +92,6 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                                 evento.Desconto = Convert.ToDecimal(reader["RD_VALOR"].ToString(),
                                     CultureInfo.InvariantCulture);
                                 break;
-                            default:
-                                evento.Base = reader["RD_VALOR"].ToString();
-                                break;
                         }
                         retorno.Eventos.Add(evento);
                         if (baseIRPF.Contains(reader["RV_CODFOL"].ToString()))
