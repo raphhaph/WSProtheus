@@ -294,7 +294,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
             sbQuery.Append(" AND SRD.RD_DATARQ BETWEEN @pPeriodoDe AND @pPeriodoAte ");
             sbQuery.Append(" AND SRD.D_E_L_E_T_ = '' ");
 
-            if (tipoDemonstrativoProtheus == "2")
+            if (tipoDemonstrativoProtheus == "1")
                 sbQuery.Append(" AND SRD.RD_TIPO2 = 'A' ");
             return sbQuery.ToString();
         }

@@ -60,6 +60,12 @@ namespace TMF.Protheus_HRP.Application.Implementation
                 default: break;
             }
             var demonstrativo = _dal.BuscarDemonstrativo(request.Matricula, request.CodigoFilial, request.CodigoEmpresa, tipoDemonstrativoProtheus, request.Periodo, request.Periodo);
+            if(demonstrativo == null)
+            {
+                resp.BusinessErrors.Add(Messages.FuncionarioNaoEncontrado);
+                resp.IsValid = false;
+                return resp;
+            }
             var cargo = _cargoDal.BuscarCargo(request.Matricula, request.CodigoFilial, request.CodigoEmpresa, demonstrativo.Cargo);
             demonstrativo.Cargo = demonstrativo.Cargo + " - " + cargo;
             var salario = _salarioDal.BuscarSalario(request.Matricula, request.CodigoFilial, request.CodigoEmpresa, request.CodigoEmpresa, request.Periodo);
