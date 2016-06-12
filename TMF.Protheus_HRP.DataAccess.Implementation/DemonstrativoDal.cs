@@ -152,26 +152,6 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                                     Valor = Convert.ToDecimal(reader["RD_VALOR"].ToString(), CultureInfo.InvariantCulture),
                                 });
                         }
-                        if (vbase != 0 || hbase != 0)
-                        {
-                            retorno.Bases.Add(new Evento
-                            {
-                                CodigoRubrica = "0721/0722",
-                                DescricaoRubrica = "Base INSS",
-                                Quantidade = hbase,
-                                Valor = vbase,
-                            });
-                        }
-                        if (vbase13 != 0 || hbase13 != 0)
-                        {
-                            retorno.Bases.Add(new Evento
-                            {
-                                CodigoRubrica = "0723/0724",
-                                DescricaoRubrica = "Base INSS 13",
-                                Quantidade = hbase13,
-                                Valor = vbase13,
-                            });
-                        }
                     }
                     else if (tipoDemonstrativoProtheus == "1")
                     {
@@ -220,6 +200,29 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                                 Valor = vbase,
                             });
                         }
+                    }
+                }
+                if (tipoDemonstrativoProtheus == "3")
+                {
+                    if (vbase != 0 || hbase != 0)
+                    {
+                        retorno.Bases.Add(new Evento
+                        {
+                            CodigoRubrica = "0721/0722",
+                            DescricaoRubrica = "Base INSS",
+                            Quantidade = hbase,
+                            Valor = vbase,
+                        });
+                    }
+                    if (vbase13 != 0 || hbase13 != 0)
+                    {
+                        retorno.Bases.Add(new Evento
+                        {
+                            CodigoRubrica = "0723/0724",
+                            DescricaoRubrica = "Base INSS 13",
+                            Quantidade = hbase13,
+                            Valor = vbase13,
+                        });
                     }
                 }
                 reader.Close();
