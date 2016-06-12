@@ -29,6 +29,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                 new SqlParameter("@pPeriodoDe", SqlDbType.VarChar){Value = periodoDe},
                 new SqlParameter("@pPeriodoAte", SqlDbType.VarChar){Value = periodoAte},
             };
+
             var sbQuery = new StringBuilder(" SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;   ");
             sbQuery.Append(CriarQueryDemonstrativo(pEmpresa, tipoDemonstrativoProtheus, true));
             sbQuery.Append(" UNION ");
