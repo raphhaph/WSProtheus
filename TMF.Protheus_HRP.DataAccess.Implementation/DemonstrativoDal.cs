@@ -194,10 +194,12 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                         {
                             retorno.Bases.Add(new Evento
                             {
-                                CodigoRubrica = "0721/0722",
-                                DescricaoRubrica = "Base INSS",
-                                Quantidade = hbase,
-                                Valor = vbase,
+                                CodigoRubrica = reader["RD_PD"].ToString(),
+                                DescricaoRubrica = reader["RV_DESC"].ToString(),
+                                Quantidade =
+                                    Convert.ToDecimal(reader["RD_HORAS"].ToString(), CultureInfo.InvariantCulture),
+                                Desconto =
+                                    Convert.ToDecimal(reader["RD_VALOR"].ToString(), CultureInfo.InvariantCulture),
                             });
                         }
                     }
