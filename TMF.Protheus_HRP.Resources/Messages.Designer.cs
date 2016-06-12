@@ -131,5 +131,14 @@ namespace TMF.Protheus_HRP.Resources {
                 return ResourceManager.GetString("PeriodoNaoInformado", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O Estado deve ser informado..
+        /// </summary>
+        public static string UFNulo {
+            get {
+                return ResourceManager.GetString("UFNulo", resourceCulture);
+            }
+        }
     }
 }

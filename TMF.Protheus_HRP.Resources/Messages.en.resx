@@ -141,4 +141,7 @@
   <data name="PeriodoNaoInformado" xml:space="preserve">
     <value>The period should be informed.</value>
   </data>
+  <data name="UFNulo" xml:space="preserve">
+    <value>The State shall be informed.</value>
+  </data>
 </root>

@@ -46,7 +46,7 @@ namespace TMF.Protheus_HRP.Application.Contracts
 
         ConsultaGenericaReponse ListarUF(ConsultaDadoGenericoRequest request);
 
-        ConsultaGenericaReponse ListarCidades(ConsultaDadoGenericoRequest request);
+        ConsultaGenericaReponse ListarCidades(ListarCidadesRequest request);
 
         ConsultaGenericaReponse ListarTurnos(ConsultaDadoGenericoRequest request);
 

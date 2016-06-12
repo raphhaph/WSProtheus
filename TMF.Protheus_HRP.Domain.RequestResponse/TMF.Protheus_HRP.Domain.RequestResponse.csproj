@@ -55,6 +55,7 @@
     <Compile Include="Base\ResponseBase.cs" />
     <Compile Include="ConsultaGenerica\ListarAgenciasBancoResponse.cs" />
     <Compile Include="ConsultaGenerica\ConsultaGenericaReponse.cs" />
+    <Compile Include="ConsultaGenerica\ListarCidadesRequest.cs" />
     <Compile Include="ConsultaGenerica\ListarCentroCustoRequest.cs" />
     <Compile Include="ConsultaGenerica\ListarAgenciasRequest.cs" />
     <Compile Include="ConsultaGenerica\ConsultaDadoGenericoRequest.cs" />
@@ -63,7 +64,10 @@
     <Compile Include="FaultContracts\ServiceError.cs" />
     <Compile Include="Models\AgenciaBanco.cs" />
     <Compile Include="Models\DadoGenerico.cs" />
+    <Compile Include="Models\Demonstrativo.cs" />
+    <Compile Include="Models\Evento.cs" />
     <Compile Include="Models\Funcionario.cs" />
+    <Compile Include="Models\RecolhimentoFGTS.cs" />
     <Compile Include="Models\TipoDemonstrativo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

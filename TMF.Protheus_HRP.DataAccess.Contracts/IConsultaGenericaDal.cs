@@ -14,5 +14,7 @@ namespace TMF.Protheus_HRP.DataAccess.Contracts
         List<DadoGenerico> BuscarDadosSX5(string pEmpresa, string pFilial,TiposSX5 tipo);
         List<DadoGenerico> ListarBancos(string pEmpresa, string pFilial);
         List<AgenciaBanco> ListarAgenciasBanco(string pCodigoBanco, string pEmpresa, string pFilial);
+        List<DadoGenerico> ListarCBO(string pEmpresa, string pFilial);
+        List<DadoGenerico> ListarCidades(string pEmpresa,  string uf);
     }
 }

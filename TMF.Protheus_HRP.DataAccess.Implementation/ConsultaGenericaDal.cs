@@ -260,5 +260,75 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                 return retorno;
             }
         }
+
+        public List<DadoGenerico> ListarCBO(string pEmpresa, string pFilial)
+        {
+            var linkedServerForQuery = ConfigurationManager.AppSettings["LinkedServerForQuery"];
+            var parameters = new List<IDbDataParameter>
+            {
+                new SqlParameter("@FILIAL", SqlDbType.VarChar){Value = pFilial},
+            };
+            var str = new StringBuilder();
+            str.Append(" SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;   ");
+
+            str.Append(" select RJ_CODCBO,                                  ");
+            str.Append("        RJ_DESC                                     ");
+            str.AppendFormat(" from {0}dbo.SRJ{1}0 SRJ", linkedServerForQuery, pEmpresa);
+            str.Append("  where RJ_FILIAL = @filial                         ");
+            str.Append("    and RJ_CODCBO <> ' '                            ");
+            str.Append("    and D_E_L_E_T_ = ' '                            ");
+            str.Append("  union                                             ");
+            str.Append(" select RJ_CODCBO,                                  ");
+            str.Append("        RJ_DESC                                     ");
+            str.AppendFormat(" from {0}dbo.SRJ{1}0 SRJ", linkedServerForQuery, pEmpresa);
+            str.Append("  where RJ_FILIAL = ' '                             ");
+            str.Append("    and RJ_CODCBO <> ' '                            ");
+            str.Append("    and D_E_L_E_T_ = ' '                            ");
+            str.Append("  order by RJ_CODCBO                                ");
+
+
+
+
+            using (var reader = ExecuteReader(str.ToString(), CommandType.Text, parameters))
+            {
+                var retorno = reader.Map(dr => new DadoGenerico
+                {
+                    Codigo = dr["RJ_CODCBO"].ToString(),
+                    Descricao = dr["RJ_DESC"].ToString()
+                });
+                reader.Close();
+                return retorno;
+            }
+        }
+        public List<DadoGenerico> ListarCidades(string pEmpresa, string uf)
+        {
+            var linkedServerForQuery = ConfigurationManager.AppSettings["LinkedServerForQuery"];
+            var parameters = new List<IDbDataParameter>
+            {
+                new SqlParameter("@UF", SqlDbType.VarChar){Value = uf},
+            };
+            var str = new StringBuilder();
+            str.Append(" SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;  ");
+
+            str.Append(" select CC2_CODMUN,                                 ");
+            str.Append("        CC2_MUN                                     ");
+            str.AppendFormat(" from {0}dbo.CC2{1}0 CC2", linkedServerForQuery, pEmpresa);
+            str.Append("  where CC2_EST = @UF                               ");
+            str.Append("    and D_E_L_E_T_ = ' '                            ");
+            str.Append("  group by CC2_CODMUN, CC2_MUN                      ");
+            str.Append("  order by CC2_CODMUN, CC2_MUN                      ");
+            
+
+            using (var reader = ExecuteReader(str.ToString(), CommandType.Text, parameters))
+            {
+                var retorno = reader.Map(dr => new DadoGenerico
+                {
+                    Codigo = dr["A6_AGENCIA"].ToString(),
+                    Descricao = dr["A6_NOME"].ToString()
+                });
+                reader.Close();
+                return retorno;
+            }
+        }
     }
 }

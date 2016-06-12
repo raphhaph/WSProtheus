@@ -28,7 +28,9 @@ namespace TMF.Protheus_HRP.Services.Seedwork.InstanceProviders
             _currentContainer.Bind<IConsultaGenericaApp>().To<ConsultaGenericaApp>();
             _currentContainer.Bind<IConsultaGenericaDal>().To<ConsultaGenericaDal>().WithConstructorArgument("connectionName", "TMF_Protheus");
 
-            
+
+            _currentContainer.Bind<IDemonstrativoApp>().To<DemonstrativoApp>();
+            _currentContainer.Bind<IDemonstrativoDal>().To<DemonstrativoDal>().WithConstructorArgument("connectionName", "TMF_Protheus");
             #region Logging Configuration
             _currentContainer.Bind<ILogger>().To<NLogLogger>();
             #endregion

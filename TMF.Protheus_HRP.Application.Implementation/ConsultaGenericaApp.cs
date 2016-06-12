@@ -373,7 +373,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
             resp.Agencias = agencias.ProjectedAsCollection<Models.AgenciaBanco>();
             return resp;
         }
-        
+
         public ConsultaGenericaReponse ListarCentroCustoDepartamento(ConsultaDadoGenericoRequest request)
         {
             var resp = new ConsultaGenericaReponse();
@@ -442,6 +442,49 @@ namespace TMF.Protheus_HRP.Application.Implementation
         }
 
 
+        public ConsultaGenericaReponse ListarCBO(ConsultaDadoGenericoRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.Filial))
+                resp.BusinessErrors.Add(Messages.FilialNula);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.ListarCBO(request.Empresa, request.Filial);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
+
+        public ConsultaGenericaReponse ListarCidades(ListarCidadesRequest request)
+        {
+            var resp = new ConsultaGenericaReponse();
+
+            if (String.IsNullOrWhiteSpace(request.Empresa))
+                resp.BusinessErrors.Add(Messages.EmpresaNula);
+
+            if (String.IsNullOrWhiteSpace(request.UF))
+                resp.BusinessErrors.Add(Messages.UFNulo);
+
+            if (resp.BusinessErrors.Any())
+            {
+                resp.IsValid = false;
+                return resp;
+            }
+            var dados = _iConsultaGenericaDal.ListarCidades(request.Empresa, request.UF);
+
+            resp.IsValid = true;
+            resp.Dados = dados.ProjectedAsCollection<Models.DadoGenerico>();
+            return resp;
+        }
 
         #endregion
 
@@ -456,7 +499,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
         {
             throw new NotImplementedException();
         }
-        
+
 
         public ConsultaGenericaReponse ListarPaises(ConsultaDadoGenericoRequest request)
         {
@@ -468,20 +511,11 @@ namespace TMF.Protheus_HRP.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCBO(ConsultaDadoGenericoRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
         public ConsultaGenericaReponse ListarFuncoes(ConsultaDadoGenericoRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ConsultaGenericaReponse ListarCidades(ConsultaDadoGenericoRequest request)
-        {
-            throw new NotImplementedException();
-        }
 
         public ConsultaGenericaReponse ListarTurnos(ConsultaDadoGenericoRequest request)
         {

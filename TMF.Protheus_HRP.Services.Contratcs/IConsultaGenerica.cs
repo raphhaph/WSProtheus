@@ -184,6 +184,25 @@ namespace TMF.Protheus_HRP.Services.Contratcs
         ConsultaGenericaReponse ListarCargos(ConsultaDadoGenericoRequest request);
 
 
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "/ListarCidades")]
+        [FaultContract(typeof(ServiceError))]
+        ConsultaGenericaReponse ListarCidades(ListarCidadesRequest request);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "/ListarCBO")]
+        [FaultContract(typeof(ServiceError))]
+        ConsultaGenericaReponse ListarCBO(ConsultaDadoGenericoRequest request);
+
+
         #endregion
 
         #region [Pendentes]
@@ -204,10 +223,7 @@ namespace TMF.Protheus_HRP.Services.Contratcs
             UriTemplate = "/ListarDepartamentos")]
         [FaultContract(typeof(ServiceError))]
         ConsultaGenericaReponse ListarDepartamentos(ConsultaDadoGenericoRequest request);
-
-
-
-
+        
         [OperationContract]
         [WebInvoke(Method = "POST",
             BodyStyle = WebMessageBodyStyle.Bare,
@@ -225,17 +241,7 @@ namespace TMF.Protheus_HRP.Services.Contratcs
             UriTemplate = "/ListarUnidadesFederativa")]
         [FaultContract(typeof(ServiceError))]
         ConsultaGenericaReponse ListarUnidadesFederativa(ConsultaDadoGenericoRequest request);
-
-
-        [OperationContract]
-        [WebInvoke(Method = "POST",
-            BodyStyle = WebMessageBodyStyle.Bare,
-            RequestFormat = WebMessageFormat.Json,
-            ResponseFormat = WebMessageFormat.Json,
-            UriTemplate = "/ListarCBO")]
-        [FaultContract(typeof(ServiceError))]
-        ConsultaGenericaReponse ListarCBO(ConsultaDadoGenericoRequest request);
-
+        
         [OperationContract]
         [WebInvoke(Method = "POST",
             BodyStyle = WebMessageBodyStyle.Bare,
@@ -244,16 +250,6 @@ namespace TMF.Protheus_HRP.Services.Contratcs
             UriTemplate = "/ListarFuncoes")]
         [FaultContract(typeof(ServiceError))]
         ConsultaGenericaReponse ListarFuncoes(ConsultaDadoGenericoRequest request);
-
-
-        [OperationContract]
-        [WebInvoke(Method = "POST",
-            BodyStyle = WebMessageBodyStyle.Bare,
-            RequestFormat = WebMessageFormat.Json,
-            ResponseFormat = WebMessageFormat.Json,
-            UriTemplate = "/ListarCidades")]
-        [FaultContract(typeof(ServiceError))]
-        ConsultaGenericaReponse ListarCidades(ConsultaDadoGenericoRequest request);
 
         [OperationContract]
         [WebInvoke(Method = "POST",

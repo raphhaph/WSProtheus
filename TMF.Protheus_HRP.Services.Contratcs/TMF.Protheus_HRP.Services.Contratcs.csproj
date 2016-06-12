@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ICabFunc.cs" />
     <Compile Include="IConsultaGenerica.cs" />
+    <Compile Include="IDemonstrativo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

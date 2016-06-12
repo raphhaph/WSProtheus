@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TMF.Protheus_HRP.Services.WCF_Rest.Demonstrativo" CodeBehind="Demonstrativo.svc.cs" %>
