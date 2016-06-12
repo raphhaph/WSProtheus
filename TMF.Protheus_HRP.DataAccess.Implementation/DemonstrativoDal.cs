@@ -143,6 +143,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                             //If Posicione("SP9",4,xFilial("SP9")+QRY->RD_PD,"P9_IDPON") $ "023A|024A"
                             //aAdd(aBanc,{QRY->RD_PD,QRY->RV_DESC,QRY->RD_HORAS,QRY->RD_VALOR}) //BASE BANCO DE HORAS
                             //EndIf
+
                             if (reader["RD_PD"].ToString() == "023A" || reader["RD_PD"].ToString() == "024A")
                                 retorno.BancoDeHoras.Add(new Evento
                                 {
