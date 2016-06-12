@@ -76,24 +76,28 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                     }
                     if (tipoDemonstrativoProtheus == "3")
                     {
-                        var evento = new Evento
-                        {
-                            CodigoRubrica = reader["RD_PD"].ToString(),
-                            DescricaoRubrica = reader["RV_DESC"].ToString(),
-                            Quantidade = Convert.ToDecimal(reader["RD_HORAS"].ToString(), CultureInfo.InvariantCulture)
-                        };
                         switch (reader["RV_TIPOCOD"].ToString())
                         {
                             case "1":
-                                evento.Valor = Convert.ToDecimal(reader["RD_VALOR"].ToString(),
-                                    CultureInfo.InvariantCulture);
+                                retorno.Eventos.Add(new Evento
+                                {
+                                    CodigoRubrica = reader["RD_PD"].ToString(),
+                                    DescricaoRubrica = reader["RV_DESC"].ToString(),
+                                    Quantidade = Convert.ToDecimal(reader["RD_HORAS"].ToString(), CultureInfo.InvariantCulture),
+                                    Valor = Convert.ToDecimal(reader["RD_VALOR"].ToString(), CultureInfo.InvariantCulture)
+                                });
+
                                 break;
                             case "2":
-                                evento.Desconto = Convert.ToDecimal(reader["RD_VALOR"].ToString(),
-                                    CultureInfo.InvariantCulture);
+                                retorno.Eventos.Add(new Evento
+                                {
+                                    CodigoRubrica = reader["RD_PD"].ToString(),
+                                    DescricaoRubrica = reader["RV_DESC"].ToString(),
+                                    Quantidade = Convert.ToDecimal(reader["RD_HORAS"].ToString(), CultureInfo.InvariantCulture),
+                                    Desconto = Convert.ToDecimal(reader["RD_VALOR"].ToString(), CultureInfo.InvariantCulture)
+                                });
                                 break;
                         }
-                        retorno.Eventos.Add(evento);
                         if (baseIRPF.Contains(reader["RV_CODFOL"].ToString()))
                         {
                             retorno.Bases.Add(new Evento
