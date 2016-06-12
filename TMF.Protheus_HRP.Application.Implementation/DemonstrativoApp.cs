@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
 using TMF.Protheus_HRP.Application.Contracts;
+using TMF.Protheus_HRP.Application.Crosscutting;
 using TMF.Protheus_HRP.DataAccess.Contracts;
 using TMF.Protheus_HRP.Domain.RequestResponse.Demonstrativo;
-using TMF.Protheus_HRP.Domain.RequestResponse.Models;
+using Models = TMF.Protheus_HRP.Domain.RequestResponse.Models;
 using TMF.Protheus_HRP.Resources;
 
 namespace TMF.Protheus_HRP.Application.Implementation
@@ -26,7 +27,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
         public BuscarDemonstrativoResponse BuscarDemonstrativo(BuscarDemonstrativoRequest request)
         {
             var resp = new BuscarDemonstrativoResponse();
-            if (request.TipoDemonstrativo == TipoDemonstrativo.AdiantamentoPLR)
+            if (request.TipoDemonstrativo == Models.TipoDemonstrativo.AdiantamentoPLR)
                 resp.BusinessErrors.Add(Messages.AdiantamentoPLRDesconsiderado);
 
             if (String.IsNullOrWhiteSpace(request.Periodo))
@@ -37,7 +38,7 @@ namespace TMF.Protheus_HRP.Application.Implementation
                 resp.IsValid = false;
                 return resp;
             }
-            if (request.TipoDemonstrativo == TipoDemonstrativo.DecimoTerceiro)
+            if (request.TipoDemonstrativo == Models.TipoDemonstrativo.DecimoTerceiro)
                 request.Periodo = request.Periodo.Substring(0, 4) + "13";
 
             var funcionario = _funcDal.BuscarFuncionario(request.Matricula, request.CodigoFilial, request.CodigoEmpresa);
@@ -51,11 +52,11 @@ namespace TMF.Protheus_HRP.Application.Implementation
             string tipoDemonstrativoProtheus = null;
             switch (request.TipoDemonstrativo)
             {
-                case TipoDemonstrativo.PagamentoMensal: tipoDemonstrativoProtheus = "3"; break;
-                case TipoDemonstrativo.Adiantamento: tipoDemonstrativoProtheus = "1"; break;
-                case TipoDemonstrativo.PLR: tipoDemonstrativoProtheus = "5"; break;
-                case TipoDemonstrativo.PrimeiraParcelaDecimoTerceiro: tipoDemonstrativoProtheus = "10"; break;
-                case TipoDemonstrativo.DecimoTerceiro: tipoDemonstrativoProtheus = "2"; break;
+                case Models.TipoDemonstrativo.PagamentoMensal: tipoDemonstrativoProtheus = "3"; break;
+                case Models.TipoDemonstrativo.Adiantamento: tipoDemonstrativoProtheus = "1"; break;
+                case Models.TipoDemonstrativo.PLR: tipoDemonstrativoProtheus = "5"; break;
+                case Models.TipoDemonstrativo.PrimeiraParcelaDecimoTerceiro: tipoDemonstrativoProtheus = "10"; break;
+                case Models.TipoDemonstrativo.DecimoTerceiro: tipoDemonstrativoProtheus = "2"; break;
                 default: break;
             }
             var demonstrativo = _dal.BuscarDemonstrativo(request.Matricula, request.CodigoFilial, request.CodigoEmpresa, tipoDemonstrativoProtheus, request.Periodo, request.Periodo);
@@ -64,6 +65,9 @@ namespace TMF.Protheus_HRP.Application.Implementation
             var salario = _salarioDal.BuscarSalario(request.Matricula, request.CodigoFilial, request.CodigoEmpresa, request.CodigoEmpresa, request.Periodo);
             if (salario > 0)
                 demonstrativo.Salario = salario;
+
+            resp.Demonstrativo = demonstrativo.ProjectedAs<Models.Demonstrativo>();
+            resp.IsValid = true;
             return resp;
         }
     }
