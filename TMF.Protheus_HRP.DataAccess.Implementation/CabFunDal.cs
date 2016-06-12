@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
         public List<MatriculaFilial> BuscarMatriculaFilial(string pMatricula, string pEmpresa, string pFilial)
         {
 
+            var linkedServerForQuery = ConfigurationManager.AppSettings["LinkedServerForQuery"];
             var parameters = new List<IDbDataParameter>
             {
                 new SqlParameter("@RA_MAT", SqlDbType.VarChar){Value    = pMatricula},
@@ -32,7 +34,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
 
             str.Append(" SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED; ");
             str.Append(" SELECT  Count(1) RA_MAT ");
-            str.AppendFormat(" From    [TOTVS].[TMF_GLOBAL_P11].dbo.SRA{0}{1} ", pEmpresa, "0");
+            str.AppendFormat(" From    {0}SRA{1}0 ",linkedServerForQuery, pEmpresa);
             str.Append(" Where   RA_MAT          =       @RA_MAT ");
             str.Append(" AND     RA_FILIAL       =       @RA_FILIAL ");
             str.Append(" AND     D_E_L_E_T_      <>      '*' ");
@@ -56,6 +58,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
         public List<CabFuncionario> BuscarCabFuncionario(string pMatricula, string pEmpresa, string pFilial)
         {
 
+            var linkedServerForQuery = ConfigurationManager.AppSettings["LinkedServerForQuery"];
             var parameters = new List<IDbDataParameter>
             {
                 new SqlParameter("@RA_MAT", SqlDbType.VarChar){Value    = pMatricula},
@@ -125,23 +128,30 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
             str.Append(" '' As  Nome_Empresa,  ");
             str.Append(" '' As  Nome_Filial  ");
 
-
-            str.AppendFormat(" From    [TOTVS].[TMF_GLOBAL_P11].dbo.SRA{0}{1} SRA", pEmpresa, "0");
-            str.AppendFormat(" Left Join    SX5{0}{1} SX5_26", pEmpresa, "0");
+            str.AppendFormat(" From    {0}SRA{1}0 SRA", linkedServerForQuery, pEmpresa);
+            str.AppendFormat(" Left Join    {0}SX5{1}0 SX5_26", linkedServerForQuery, pEmpresa);
             str.AppendFormat(" On SX5_26.X5_CHAVE = SRA.RA_GRINRAI AND SX5_26.X5_TABELA = '26' AND D_E_L_E_T_ = ' ' AND SX5_26.X5_FILIAL  = '@RA_FILIAL'  ");
-            str.AppendFormat(" Left Join    SX5{0}{1} SX5_40", pEmpresa, "0");
+
+            str.AppendFormat(" Left Join    {0}SX5{1}0 SX5_40", linkedServerForQuery, pEmpresa);
             str.AppendFormat(" On SX5_40.X5_CHAVE = SRA.RA_TIPOPGT AND SX5_40.X5_TABELA = '40' AND D_E_L_E_T_ = ' ' AND SX5_40.X5_FILIAL  =  '@RA_FILIAL'  ");
-            str.AppendFormat(" Left Join    SX5{0}{1} SX5_31", pEmpresa, "0");
+
+            str.AppendFormat(" Left Join    {0}SX5{1}0 SX5_31", linkedServerForQuery, pEmpresa);
             str.AppendFormat(" On SX5_31.X5_CHAVE = SRA.RA_SITFOLH AND SX5_31.X5_TABELA = '31' AND D_E_L_E_T_ = ' ' AND SX5_31.X5_FILIAL  =  '@RA_FILIAL'  ");
-            str.AppendFormat(" Left Join    SX5{0}{1} SX5_34", pEmpresa, "0");
+
+            str.AppendFormat(" Left Join    {0}SX5{1}0 SX5_34", linkedServerForQuery, pEmpresa);
             str.AppendFormat(" On SX5_34.X5_CHAVE = SRA.RA_NACIONA AND SX5_34.X5_TABELA = '34' AND D_E_L_E_T_ = ' ' AND SX5_34.X5_FILIAL  =  '@RA_FILIAL'  ");
-            str.AppendFormat(" Left Join    SX5{0}{1} SX5_33", pEmpresa, "0");
+
+
+            str.AppendFormat(" Left Join    {0}SX5{1}0 SX5_33", linkedServerForQuery, pEmpresa);
             str.AppendFormat(" On SX5_33.X5_CHAVE = SRA.RA_ESTCIVI AND SX5_33.X5_TABELA = '33' AND D_E_L_E_T_ = ' ' AND SX5_33.X5_FILIAL  =  '@RA_FILIAL'  ");
-            str.AppendFormat(" Left Join    SA6{0}{1} SA6", pEmpresa, "0");
+            
+            str.AppendFormat(" Left Join    {0}SA6{1}0 SA6", linkedServerForQuery, pEmpresa);
             str.AppendFormat(" On  A6_COD = SUBSTRING(SRA.RA_BCDEPSA,1,3) AND SA6.A6_FILIAL      =  @RA_FILIAL AND D_E_L_E_T_ = ' '  ");
-            str.AppendFormat(" Left Join    SRJ{0}{1} SRJ_Func", pEmpresa, "0");
+
+            str.AppendFormat(" Left Join    {0}SRJ{1}0 SRJ_Func", linkedServerForQuery, pEmpresa);
             str.AppendFormat(" On  SRJ_Func.RJ_FUNCAO = SRA.RA_CODFUNC AND SRJ_Func.RJ_FILIAL     =  @RA_FILIAL AND D_E_L_E_T_ = ' '  ");
-            str.AppendFormat(" Left Join    SRJ{0}{1} SRJ_CBO", pEmpresa, "0");
+
+            str.AppendFormat(" Left Join    {0}SRJ{1}0 SRJ_CBO", linkedServerForQuery, pEmpresa);
             str.AppendFormat(" On  SRJ_CBO.RJ_CODCBO = SRA.RA_CBO AND SRJ_CBO.RJ_FILIAL           =  @RA_FILIAL AND D_E_L_E_T_ = ' '  ");
 
             str.Append(" Where   SRA.RA_MAT          =       @RA_MAT ");
