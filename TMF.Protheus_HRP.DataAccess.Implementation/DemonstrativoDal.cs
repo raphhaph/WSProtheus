@@ -166,7 +166,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                             });
                         }
                     }
-                    else if (tipoDemonstrativoProtheus == "10")
+                    else if (tipoDemonstrativoProtheus == "10" || tipoDemonstrativoProtheus == "2" || tipoDemonstrativoProtheus == "5" )
                     {
                         if (reader["RV_TIPOCOD"].ToString() == "1")
                         {
