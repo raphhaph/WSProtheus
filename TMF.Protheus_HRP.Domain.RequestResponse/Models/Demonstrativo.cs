@@ -44,10 +44,10 @@ namespace TMF.Protheus_HRP.Domain.RequestResponse.Models
         public List<Evento> Cooperativas { get; set; }
         [DataMember]
 
-        public string DataAdmissao { get; set; }
+        public DateTime DataAdmissao { get; set; }
         [DataMember]
 
-        public string DataPagamento { get; set; }
+        public DateTime DataPagamento { get; set; }
         [DataMember]
 
         public List<Evento> Eventos { get; set; }

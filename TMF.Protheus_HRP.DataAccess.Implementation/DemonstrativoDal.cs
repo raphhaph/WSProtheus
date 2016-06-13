@@ -64,7 +64,10 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                             Matricula = reader["RA_MAT"].ToString(),
                             Nome = reader["RA_NOME"].ToString(),
                             CPF = reader["RA_CIC"].ToString(),
-                            DataAdmissao = reader["RA_ADMISSA"].ToString(),
+                            DataAdmissao = reader["RA_ADMISSA"] == DBNull.Value ? new DateTime() :
+                                new DateTime(Convert.ToInt32(reader["RA_ADMISSA"].ToString().Substring(0, 4)),
+                                    Convert.ToInt32(reader["RA_ADMISSA"].ToString().Substring(4, 2)),
+                                    Convert.ToInt32(reader["RA_ADMISSA"].ToString().Substring(6, 2))),
                             Cargo = reader["RA_CODFUNC"].ToString(),
                             Salario = reader["RA_SALARIO"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["RA_SALARIO"], CultureInfo.InstalledUICulture),
                             QuantidadeDependenteSalarioFamilia = reader["RA_DEPSF"].ToString(),
@@ -72,7 +75,10 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                             Banco = bancoAgencia.Substring(0, 3),
                             Agencia = bancoAgencia.Substring(3),
                             ContaCorrente = reader["RA_CTDEPSA"].ToString(),
-                            DataPagamento = reader["RD_DATPGT"].ToString()
+                            DataPagamento = reader["RD_DATPGT"] == DBNull.Value ? new DateTime() :
+                                new DateTime(Convert.ToInt32(reader["RD_DATPGT"].ToString().Substring(0, 4)),
+                                    Convert.ToInt32(reader["RD_DATPGT"].ToString().Substring(4, 2)),
+                                    Convert.ToInt32(reader["RD_DATPGT"].ToString().Substring(6, 2)))
                         };
                     }
                     if (tipoDemonstrativoProtheus == "3")
@@ -168,7 +174,7 @@ namespace TMF.Protheus_HRP.DataAccess.Implementation
                             });
                         }
                     }
-                    else if (tipoDemonstrativoProtheus == "10" || tipoDemonstrativoProtheus == "2" || tipoDemonstrativoProtheus == "5" )
+                    else if (tipoDemonstrativoProtheus == "10" || tipoDemonstrativoProtheus == "2" || tipoDemonstrativoProtheus == "5")
                     {
                         if (reader["RV_TIPOCOD"].ToString() == "1")
                         {

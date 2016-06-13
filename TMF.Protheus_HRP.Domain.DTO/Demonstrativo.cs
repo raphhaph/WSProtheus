@@ -32,9 +32,9 @@ namespace TMF.Protheus_HRP.Domain.DTO
 
         public List<Evento> Cooperativas { get; set; }
 
-        public string DataAdmissao { get; set; }
+        public DateTime DataAdmissao { get; set; }
 
-        public string DataPagamento { get; set; }
+        public DateTime DataPagamento { get; set; }
 
         public List<Evento> Eventos { get; set; }
 
